@@ -1,14 +1,14 @@
 import pandas as pd
 import numpy as np
 
-# low modularity means community detection is def bad. BUT high modularity does not necessarily mean it is good
-
 hist_data = pd.read_csv('historical_data.csv')
-companies_info = pd.read_csv('companies.csv')
-companies_list = list(companies_info['Symbol'])
-print(hist_data)
 
-adj_matrix = np.zeros((len(companies_list), len(companies_list)))
+comps_list = list(hist_data['symbol'].unique())
+# saved comps_list to csv:
+# pd.DataFrame(comps_list, columns=['symbol']).to_csv(r'company_list.csv')
+print(comps_list)
+
+adj_matrix = np.zeros((len(comps_list), len(comps_list)))
 # adj_matrix[0][1] += 1
 # print(adj_matrix)
 
@@ -22,17 +22,19 @@ def ccf_values(series1, series2):
     return c
 
 
-for j in range(len(companies_list)):
-    for i in range(len(companies_list)):
-        comp1 = companies_list[i]
-        comp2 = companies_list[j]
+for j in range(len(comps_list)):
+    for i in range(len(comps_list)):
+        comp1 = comps_list[i]
+        comp2 = comps_list[j]
         series1 = hist_data.loc[hist_data['symbol'] == comp1]['close']
         series2 = hist_data.loc[hist_data['symbol'] == comp2]['close']
+            
         ccf = ccf_values(series1, series2)
-        # print(ccf)
 
         if ~(i == j):
             adj_matrix[i][j] += ccf[0]
+
+    print('j: ', j)
 
 print(adj_matrix)
 
