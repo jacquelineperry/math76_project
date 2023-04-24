@@ -12,26 +12,18 @@ project_directory/
 ├── data/ # Data files directory
 │   ├── historical_data.csv # Historical stock data
 │   ├── companies.csv # S&P 500 companies information
-│   └── ...
+│   └── ... #etc
 │
 ├── src/ # Source code directory
-│   ├── data_preparation/ # Data preparation module
+│   ├── stocks_network/ 
 │   │   ├── __init__.py  # Package initialization
-│   │   └── data_preparation.py # Data preparation functions
-│   │
-│   ├── network_construction/
-│   │   ├── __init__.py
-│   │   └── network_construction.py
-│   │
-│   ├── network_analysis/
-│   │   ├── __init__.py
-│   │   └── network_analysis.py
-│   │
-│   └── visualization/
-│       ├── __init__.py
-│       └── visualization.py
+│   │   └── correlation.py # Data preparation functions
+│   │   └── network_graph.py # Data preparation functions
+│  
 │
 └── main.py
+└── basic_net_testing.py
+└── corr_testing.py
 ```
 
 
@@ -42,22 +34,6 @@ This directory contains data files like historical stock data and information ab
 ### src/
 
 This directory contains the source code organized into separate subdirectories for each module.
-
-#### src/data_preparation/
-
-This module contains functions for preparing and processing the data, including downloading historical stock data, calculating correlations, and extracting features like location, industry, and market cap.
-
-#### src/network_construction/
-
-This module contains functions for building the network graph, including creating single-layer and multilayer graphs, and adding nodes and edges based on different attributes.
-
-#### src/network_analysis/
-
-This module contains functions for analyzing the network graph, including calculating network properties like clustering coefficients, path lengths, and modularity, as well as functions for estimating optimal thresholds.
-
-#### src/visualization/
-
-This module contains functions for visualizing the network graph and its properties, including plotting the network, displaying node and edge attributes, and creating visualizations of network properties for different thresholds.
 
 ### main.py
 
