@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+import pandas as pd
+import numpy as np
+from src.data_preparation.cross_correlation import compute_cadjacency_matrix
+from src.data_preparation.pearson_correlation import compute_padjacency_matrix
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # 1. load the historical data into pd data frame
+    hist_data = pd.read_csv('data/historical_data.csv')
+
+    # 2. compute the adjacency matrix using cross-correlation
+    cadj_matrix = compute_cadjacency_matrix(hist_data)
+
+    # 3. compute the adjacency matrix using pearson correlation
+    padj_matrix = compute_padjacency_matrix(hist_data)
+
