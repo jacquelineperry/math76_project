@@ -2,18 +2,22 @@ import networkx as nx
 from src.stocks_network.correlation import Correlation
 
 # Description
+# ----------
 # The NetworkGraph class creates a network graph of stock correlations using historical stock price data.
 # It provides methods for creating a basic network graph,adding node attributes, and evaluating network properties, such as
 # average clustering coefficient, average shortest path length, and modularity.
 
 # default constants
+
 DEFAULT_P_VALUE = 0.05 
 DEFAULT_CORRELATION_THRESHOLD = 0.85 # threshold when not using p_value stat
 
+
 class NetworkGraph():
     def __init__(self, historical_data, p_value=DEFAULT_P_VALUE, correlation_threshold=DEFAULT_CORRELATION_THRESHOLD):
-        """Initializes the NetworkGraph object with historical stock price data, p_value threshold, and correlation threshold.
-            Also creates a list of unique company symbols found in the data.
+        """Initializes the NetworkGraph object with historical stock price data, 
+            p_value threshold, and correlation threshold. Also creates a list 
+            of unique company symbols found in the data.
         """
   
         # 1. setting up data files
@@ -27,7 +31,6 @@ class NetworkGraph():
         # init basic graph
         self.G = None
 
-        
 
     def create_basic_network(self):
         """
@@ -67,8 +70,6 @@ class NetworkGraph():
 
 
 
-
-
     def add_node_attributes(self, attributes_data):
         """
         Adds attributes to the nodes in the network graph.
@@ -78,7 +79,7 @@ class NetworkGraph():
         # TODO: here
         pass
 
-
+    
 
 
     def evaluate_network_properties(self):

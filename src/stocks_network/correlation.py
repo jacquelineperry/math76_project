@@ -22,10 +22,6 @@ from scipy.stats import pearsonr
 # relationships between companies.
 
 
-# deafult data files
-#DEFAULT_HISTORICAL_DATA = pd.read_csv('historical_data.csv')
-
-
 class Correlation():
     def __init__(self, historical_data):
         
@@ -138,7 +134,6 @@ class Correlation():
     
 
 
-
     def pearson_adjacency_matrix(self):
         """
         Computes the adjacency matrix for stock price correlations using Pearson correlation.
@@ -181,4 +176,8 @@ class Correlation():
 
             #print('j: ', j)
         return pearson_adj_matrix
+
+
+    # ----------- multilayer correlations -----------------
+    # TODO: here
 
