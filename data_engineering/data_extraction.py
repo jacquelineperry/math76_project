@@ -6,7 +6,7 @@ import pandas as pd
 import time
 
 # getting list of S&P 500 companies
-df = pd.read_csv('companies.csv')
+df = pd.read_csv('data/companies.csv')
 ticker_list = list(df['Symbol'])
 all_symbols = " ".join(ticker_list)
 
