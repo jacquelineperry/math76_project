@@ -1,3 +1,4 @@
+#%%
 from src.stocks_network.network_graph import NetworkGraph
 import pandas as pd
 
@@ -9,10 +10,13 @@ def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
-
+#%%
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+   
     print('test')
+
+    #%%
     hist_data_weekly = pd.read_csv('data/historical_prices.csv')
     network = NetworkGraph(hist_data_weekly)
     network.create_basic_network(corr_type="pearsonr")
@@ -20,3 +24,5 @@ if __name__ == '__main__':
     print(network.G)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+# %%
