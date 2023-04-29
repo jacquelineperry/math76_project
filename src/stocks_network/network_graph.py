@@ -1,5 +1,6 @@
+#%%
 import networkx as nx
-from src.stocks_network.correlation import Correlation
+from correlation import Correlation
 
 # Description
 # ----------
@@ -45,3 +46,12 @@ class NetworkGraph():
         self.G = nx.relabel_nodes(self.G, labels_mapping)
     
         return self.G
+    
+    def create_sector_network(self):
+
+        
+
+        return self.G
+
+    
+# %%
