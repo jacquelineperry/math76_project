@@ -1,22 +1,37 @@
 #%%
 import pandas as pd
 import numpy as np
+from yahooquery import Ticker
 
 class Industry():
-    def __init__(self, industry_sector_list):
-        # 1. setting up data files
-        self.industry_list =  list(industry_sector_list['industry'])
-        self.sector_list   =  list(industry_sector_list['sector'])
-        self.company_list  =  list(industry_sector_list['symbol'])
+    def __init__(self, company_list):
+        self.company_list = self.company_list = company_list
 
-    def get_adj_matrixes(self):
+        # below code looks up sector and industry from company list
+        tickers = Ticker(self.company_list, asynchronous=True)
+
+        datasi = tickers.get_modules("summaryProfile quoteType")
+        dfsi = pd.DataFrame.from_dict(datasi).T
+        dataframes = [pd.json_normalize([x for x in dfsi[module] if isinstance(x, dict)]) for
+        module in ['summaryProfile', 'quoteType']]
+
+        dfsi = pd.concat(dataframes, axis=1)
+
+        dfsi = dfsi.set_index('symbol')
+        dfsi = dfsi.loc[self.company_list]
+  
+        # 1. setting up data files
+        self.industry_list =  list(dfsi['industry'])
+        self.sector_list   =  list(dfsi['sector'])
+
+    def get_adj_matrices(self,type):
         """
         Computes the adjacency matrixes for industry and sector.
         
-        Args:
+        Args: industry_sector_list: panda data frame with symbol, industry, sector
 
             
-        Returns:
+        Returns: two adjancency matrices,[0] is sector and [1] is industry
             
         """
 
@@ -38,17 +53,8 @@ class Industry():
         adj_matrix_sector = adj_matrix_sector + adj_matrix_sector.T - np.diag(np.diag(adj_matrix_sector))
         adj_matrix_industry = adj_matrix_industry + adj_matrix_industry.T - np.diag(np.diag(adj_matrix_industry))
         
-        return adj_matrix_sector, adj_matrix_industry
+        if type =="sector":
+            return adj_matrix_sector
+        if type =="industry":
+            return adj_matrix_industry
 
-
-#%%
-industry_sector = pd.read_csv(r"C:\Users\coope\Documents\Math 76\math76_project\data\industry_sector.csv")
-test1 = Industry(industry_sector)
-#print(industry_sector)
-
-print(test1.industry_list)
-print(test1.sector_list)
-# %%
-print(industry_sector)
-test1.get_adj_matrixes()[1]
-# %%

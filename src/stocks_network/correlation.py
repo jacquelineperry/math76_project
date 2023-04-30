@@ -72,6 +72,5 @@ class Correlation():
         return adj_matrix
 
 
-    print("is this working?")
     # ----------- multilayer correlations -----------------
     # TODO: here

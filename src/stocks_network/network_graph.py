@@ -1,6 +1,8 @@
 #%%
 import networkx as nx
 from correlation import Correlation
+from industry import Industry
+import pandas as pd
 
 # Description
 # ----------
@@ -20,6 +22,7 @@ class NetworkGraph():
         # 1. setting up data files
         self.historical_data =  self.historical_data = historical_data
         self.company_list = list(historical_data.columns)[1:]
+        # self.industry_sector = industry_sector
 
         # init basic graph
         self.G = None
@@ -48,10 +51,28 @@ class NetworkGraph():
         return self.G
     
     def create_sector_network(self):
+        sector = Industry(self.company_list) 
+        adj_matrix = sector.get_adj_matrices("sector")
+        print("Adjacency matrix: \n", adj_matrix)
 
-        
+        self.G = nx.from_numpy_matrix(adj_matrix)
+
+        labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
+        self.G = nx.relabel_nodes(self.G, labels_mapping)
+
+        return self.G
+    
+    def create_industry_network(self):
+        industry = Industry(self.company_list) 
+        adj_matrix = industry.get_adj_matrices("industry")
+        print("Adjacency matrix: \n", adj_matrix)
+
+        self.G = nx.from_numpy_matrix(adj_matrix)
+
+        labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
+        self.G = nx.relabel_nodes(self.G, labels_mapping)
 
         return self.G
 
-    
+
 # %%
