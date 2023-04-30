@@ -23,20 +23,20 @@ data.dropna(axis=1, how='all', inplace=True)
 
 #data.to_csv(r'historical_prices_daily.csv')
 
-#%%
-sbux = yf.Ticker("SBUX")
-print(sbux.info['sector'])
-print(sbux.info)
+# #%%
+# sbux = yf.Ticker("SBUX")
+# print(sbux.info['sector'])
+# print(sbux.info)
 
-df = pd.read_csv('../company_list_aft2018.csv')
-yf.Ticker(str(df['symbol'][1])).info['sector']
-df['sector'] = df['symbol']
-#df['sector'] = yf.Ticker(str(df['symbol'])).info['sector']
-df
+# df = pd.read_csv('../company_list_aft2018.csv')
+# yf.Ticker(str(df['symbol'][1])).info['sector']
+# df['sector'] = df['symbol']
+# #df['sector'] = yf.Ticker(str(df['symbol'])).info['sector']
+# df
 # %%
 
 #symbols = ['TSHA', 'GRAMF', 'VFC', 'ABOS', 'INLX', 'INVO', 'IONM', 'IONQ']
-symbols = df['symbol']
+symbols = df['symbol'].head(20)
 
 tickers = Ticker(symbols, asynchronous=True)
 
@@ -51,4 +51,8 @@ dfsi = dfsi.set_index('symbol')
 dfsi = dfsi.loc[symbols]
 
 print(dfsi[['industry', 'sector']])
+
+
+# %%
+dfsi[['industry', 'sector']].to_csv(r'industry_sector_test.csv')
 # %%
