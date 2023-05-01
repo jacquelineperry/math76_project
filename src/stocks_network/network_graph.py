@@ -1,3 +1,4 @@
+#%%
 import networkx as nx
 from src.stocks_network.correlation import Correlation
 
@@ -22,6 +23,7 @@ class NetworkGraph():
 
         # init basic graph
         self.G = None
+        self.adj_matrix = None
 
     def create_basic_network(self, corr_type):
         """
@@ -39,6 +41,7 @@ class NetworkGraph():
         adj_matrix = corr.get_adj_matrix(corr_type) # 3.2 calculate correlation matrix
         print("Adjacency matrix: \n", adj_matrix)
 
+        self.adj_matrix = adj_matrix
         self.G = nx.from_numpy_matrix(adj_matrix)
 
         labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
