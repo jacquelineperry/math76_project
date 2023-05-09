@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import pearsonr, spearmanr, kendalltau
+import math as m
+import scipy
 
 # Description
 
@@ -68,10 +70,68 @@ class Correlation():
                         adj_matrix[i][j] += 1
 
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
+        sparse_adj_mat = scipy.sparse.csr_matrix(adj_matrix)
+        sparse_adj_mat.prune()
 
         return adj_matrix
 
+    def get_fisher_matrix(self, corr_type):
+        returns = pd.DataFrame()
+        for comp in self.company_list:
+            prices = self.historical_data[comp].copy()
+            print('hi again')
+            prices.dropna(inplace=True)
+            print(prices)
 
+            ret = []
+            for i in range(1, len(prices)):
+                print('second loop')
+                print('i ', i)
+                print(len(prices))
+                print('price1 ', prices[i])
+                print('price2 ', prices[i-1])
+                print(m.log(prices[i]/prices[i-1]))
+                ret.append(m.log(prices[i]/prices[i-1]))
+                print('after append')
+            returns[comp] = ret
 
+        print('out of loop')
+        adj_matrix = np.zeros((len(self.company_list), len(self.company_list))) # initialize to 2D array of zeroes
+        # N = len(self.historical_data['AAPL'])
+        N = len(returns['AAPL'])
+
+        std = 1/m.sqrt(N-3)
+        thresh = m.tanh(3*std)
+        # Iterate over each pair of companies
+        for j in range(len(self.company_list)-1, -1, -1):
+            for i in range(0, j+1):
+                comp1 = self.company_list[i]
+                comp2 = self.company_list[j]
+                
+                if (comp1 != comp2):
+                    # prices = self.historical_data[[comp1, comp2]].copy()
+                    rets = returns[[comp1, comp2]].copy()
+                    # prices.dropna(inplace=True)
+                    if rets.empty:
+                        continue
+                    X = np.stack((rets[comp1], rets[comp2]), axis=0)
+
+                    cov = np.cov(X)[0][1]
+                    corr = cov/(np.std(rets[comp1]) * np.std(rets[comp2]))
+
+                    # corr, p_val = 0, 0
+                    # if corr_type=="pearsonr": 
+                    #     corr, p_val = pearsonr(prices[comp1], prices[comp2])
+                    # if corr_type=="spearmanr":
+                    #     corr, p_val = spearmanr(prices[comp1], prices[comp2])
+                    # if corr_type=="kendalltau":
+                    #     corr, p_val = kendalltau(prices[comp1], prices[comp2])
+
+                    if abs(corr) > thresh:
+                        adj_matrix[i][j] += 1
+
+        adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
+
+        return adj_matrix
     # ----------- multilayer correlations -----------------
     # TODO: here

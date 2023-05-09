@@ -3,25 +3,38 @@ from src.stocks_network.network_graph import NetworkGraph
 from src.stocks_network.multilayer_graph import MultiLayerGraph
 import pandas as pd
 import networkx as nx
+import yfinance as yf
+import matplotlib.pyplot as plt
+import sys
+import numpy as np
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
 #%%
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print('test')
     hist_data_weekly = pd.read_csv('data/historical_prices.csv')
     hist_data_daily = pd.read_csv('data/historical_prices_daily.csv')
     network = NetworkGraph(hist_data_weekly)
-    network.create_basic_network(corr_type="pearsonr")
+    # network.create_basic_network(corr_type="pearsonr")
+    network.create_fisher_network(corr_type='pearsonr')
 
-    print(network.G)
+    # print(network.G.nodes.data())
+    nx.write_gexf(network.G, 'weekly-data-3.gexf')
+
+
+    #%%
+    np.set_printoptions(threshold=sys.maxsize)
+    print(network.adj_matrix)
+    # nx.write_gexf(network.G, 'weekly-data-3.gexf')
+    # pos = nx.spring_layout(network.G, 0.5)
+    # nx.draw(network.G, pos)
+    # plt.show()
+
+
+
     #%%
 
     # Data splits into quarters 2018-2022
@@ -57,6 +70,10 @@ if __name__ == '__main__':
 
     layer_2018_q1 = NetworkGraph(data_2018_q1)
     layer_2018_q1.create_basic_network(corr_type="pearsonr")
+
+    # nx.write_gexf(layer_2018_q1.G, '2018-q1-graph.gexf')
+
+
     layer_2018_q2 = NetworkGraph(data_2018_q2)
     layer_2018_q2.create_basic_network(corr_type="pearsonr")
     layer_2018_q3 = NetworkGraph(data_2018_q3)

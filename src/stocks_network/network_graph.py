@@ -1,6 +1,9 @@
 #%%
 import networkx as nx
 from src.stocks_network.correlation import Correlation
+import yfinance as yf
+from yahooquery import Ticker
+import pandas as pd
 
 # Description
 # ----------
@@ -43,8 +46,79 @@ class NetworkGraph():
 
         self.adj_matrix = adj_matrix
         self.G = nx.from_numpy_matrix(adj_matrix)
-
+ 
         labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
         self.G = nx.relabel_nodes(self.G, labels_mapping)
+
+        attribute_dict = {}
+
+        tickers = Ticker(self.company_list, asynchronous=True)
+
+        datasi = tickers.get_modules("summaryProfile quoteType")
+        dfsi = pd.DataFrame.from_dict(datasi).T
+        dataframes = [pd.json_normalize([x for x in dfsi[module] if isinstance(x, dict)]) for
+        module in ['summaryProfile', 'quoteType']]
+
+        dfsi = pd.concat(dataframes, axis=1)
+
+        dfsi = dfsi.set_index('symbol')
+        dfsi = dfsi.loc[self.company_list]
+  
+        # 1. setting up data files
+        self.industry_list =  list(dfsi['industry'])
+        self.sector_list   =  list(dfsi['sector'])
+
+        # print('node 0: ', self.G.nodes[0])
+
+        for i in range(0, len(self.company_list)):
+            # print(company_list[i])
+            # tick = yf.Ticker(comp)
+            comp = self.company_list[i]
+            attribute_dict[comp] = self.sector_list[i]
+            # self.G.nodes[i]['sector'] = self.industry_list[i]
+
+        nx.set_node_attributes(self.G, attribute_dict, "sector")
+    
+        return self.G
+    
+    def create_fisher_network(self, corr_type):
+        corr= Correlation(self.historical_data) # 3.1  create correlation instance
+        adj_matrix = corr.get_fisher_matrix(corr_type) # 3.2 calculate correlation matrix
+        print("Adjacency matrix: \n", adj_matrix)
+
+        self.adj_matrix = adj_matrix
+        self.G = nx.from_numpy_matrix(adj_matrix)
+ 
+        labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
+        self.G = nx.relabel_nodes(self.G, labels_mapping)
+
+        attribute_dict = {}
+
+        tickers = Ticker(self.company_list, asynchronous=True)
+
+        datasi = tickers.get_modules("summaryProfile quoteType")
+        dfsi = pd.DataFrame.from_dict(datasi).T
+        dataframes = [pd.json_normalize([x for x in dfsi[module] if isinstance(x, dict)]) for
+        module in ['summaryProfile', 'quoteType']]
+
+        dfsi = pd.concat(dataframes, axis=1)
+
+        dfsi = dfsi.set_index('symbol')
+        dfsi = dfsi.loc[self.company_list]
+  
+        # 1. setting up data files
+        self.industry_list =  list(dfsi['industry'])
+        self.sector_list   =  list(dfsi['sector'])
+
+        # print('node 0: ', self.G.nodes[0])
+
+        for i in range(0, len(self.company_list)):
+            # print(company_list[i])
+            # tick = yf.Ticker(comp)
+            comp = self.company_list[i]
+            attribute_dict[comp] = self.sector_list[i]
+            # self.G.nodes[i]['sector'] = self.industry_list[i]
+
+        nx.set_node_attributes(self.G, attribute_dict, "sector")
     
         return self.G
