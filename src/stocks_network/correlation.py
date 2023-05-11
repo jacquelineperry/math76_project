@@ -121,10 +121,13 @@ class Correlation():
                     if corr_type=="kendalltau":
                         corr, p_val = kendalltau(rets[comp1], rets[comp2])
 
-                    if abs(corr) > thresh:
-                        corr_matrix[i][j] += corr
-                        adj_matrix[i][j] += 1
+                    # if abs(corr) > thresh:
+                    corr_matrix[i][j] += corr
+                    adj_matrix[i][j] += 1
 
+        adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
+
+        # Applying Random Matrix Theory
         corr_matrix = corr_matrix + corr_matrix.T - np.diag(np.diag(corr_matrix))
         sparse_corr_mat = scipy.sparse.csr_matrix(adj_matrix)
         eig_vals, eig_vects = scipy.linalg.eig(sparse_corr_mat)
@@ -141,8 +144,16 @@ class Correlation():
                 corr_g += eig_vals[i] * eig_vects[:,i] * eig_vects[:,i].T
 
         corr_s = corr_matrix - corr_r
-        adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
 
-        return corr_s
+        fish_corr_s = np.zeros((len(self.company_list), len(self.company_list)))
+        # Applying fisher transform
+        for j in range(len(self.company_list)-1, -1, -1):
+            for i in range(0, j+1):
+                if abs(corr_s[i][j]) > thresh:
+                    fish_corr_s += 1
+
+        fish_corr_s = fish_corr_s + fish_corr_s.T - np.diag(np.diag(fish_corr_s))
+
+        return fish_corr_s
     # ----------- multilayer correlations -----------------
     # TODO: here
