@@ -3,6 +3,7 @@ import numpy as np
 from scipy.stats import pearsonr, spearmanr, kendalltau
 import math as m
 import scipy
+import time
 
 # Description
 
@@ -70,8 +71,6 @@ class Correlation():
                         adj_matrix[i][j] += 1
 
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
-        sparse_adj_mat = scipy.sparse.csr_matrix(adj_matrix)
-        sparse_adj_mat.prune()
 
         return adj_matrix
 
@@ -79,29 +78,24 @@ class Correlation():
         returns = pd.DataFrame()
         for comp in self.company_list:
             prices = self.historical_data[comp].copy()
-            print('hi again')
-            prices.dropna(inplace=True)
-            print(prices)
+
+            if prices.empty:
+                continue
 
             ret = []
             for i in range(1, len(prices)):
-                print('second loop')
-                print('i ', i)
-                print(len(prices))
-                print('price1 ', prices[i])
-                print('price2 ', prices[i-1])
-                print(m.log(prices[i]/prices[i-1]))
                 ret.append(m.log(prices[i]/prices[i-1]))
-                print('after append')
             returns[comp] = ret
 
         print('out of loop')
         adj_matrix = np.zeros((len(self.company_list), len(self.company_list))) # initialize to 2D array of zeroes
-        # N = len(self.historical_data['AAPL'])
-        N = len(returns['AAPL'])
+        corr_matrix = np.zeros((len(self.company_list), len(self.company_list))) # initialize to 2D array of zeroes
 
-        std = 1/m.sqrt(N-3)
-        thresh = m.tanh(3*std)
+        # T = len(self.historical_data['AAPL'])
+        T = len(returns['AAPL'])
+
+        std = 1/m.sqrt(T-3)
+        thresh = m.tanh(2*std)
         # Iterate over each pair of companies
         for j in range(len(self.company_list)-1, -1, -1):
             for i in range(0, j+1):
@@ -111,27 +105,45 @@ class Correlation():
                 if (comp1 != comp2):
                     # prices = self.historical_data[[comp1, comp2]].copy()
                     rets = returns[[comp1, comp2]].copy()
+                    rets.dropna(inplace=True)
                     # prices.dropna(inplace=True)
                     if rets.empty:
                         continue
-                    X = np.stack((rets[comp1], rets[comp2]), axis=0)
+                    # X = np.stack((rets[comp1], rets[comp2]), axis=0)
+                    # cov = np.cov(X)[0][1]
+                    # corr = cov/(np.std(rets[comp1]) * np.std(rets[comp2]))
 
-                    cov = np.cov(X)[0][1]
-                    corr = cov/(np.std(rets[comp1]) * np.std(rets[comp2]))
-
-                    # corr, p_val = 0, 0
-                    # if corr_type=="pearsonr": 
-                    #     corr, p_val = pearsonr(prices[comp1], prices[comp2])
-                    # if corr_type=="spearmanr":
-                    #     corr, p_val = spearmanr(prices[comp1], prices[comp2])
-                    # if corr_type=="kendalltau":
-                    #     corr, p_val = kendalltau(prices[comp1], prices[comp2])
+                    corr, p_val = 0, 0
+                    if corr_type=="pearsonr": 
+                        corr, p_val = pearsonr(rets[comp1], rets[comp2])
+                    if corr_type=="spearmanr":
+                        corr, p_val = spearmanr(rets[comp1], rets[comp2])
+                    if corr_type=="kendalltau":
+                        corr, p_val = kendalltau(rets[comp1], rets[comp2])
 
                     if abs(corr) > thresh:
+                        corr_matrix[i][j] += corr
                         adj_matrix[i][j] += 1
 
+        corr_matrix = corr_matrix + corr_matrix.T - np.diag(np.diag(corr_matrix))
+        sparse_corr_mat = scipy.sparse.csr_matrix(adj_matrix)
+        eig_vals, eig_vects = scipy.linalg.eig(sparse_corr_mat)
+        lambda_max = (1 + m.sqrt(len(self.company_list)/T))**2
+        lambda_min = (1 - m.sqrt(len(self.company_list)/T))**2
+        max_eig_val = eig_vals.max()
+
+        corr_r = np.zeros((len(self.company_list), len(self.company_list))) 
+        corr_g = np.zeros((len(self.company_list), len(self.company_list)))
+
+        for i in range(0, len(eig_vals)):
+            if eig_vals[i] <= lambda_max:
+                corr_r += eig_vals[i] * eig_vects[:,i] * eig_vects[:,i].T
+            if lambda_max <= eig_vals[i] <= max_eig_val:
+                corr_g += eig_vals[i] * eig_vects[:,i] * eig_vects[:,i].T
+
+        corr_s = corr_matrix - corr_r
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
 
-        return adj_matrix
+        return corr_g
     # ----------- multilayer correlations -----------------
     # TODO: here
