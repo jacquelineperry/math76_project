@@ -129,7 +129,6 @@ class Correlation():
         sparse_corr_mat = scipy.sparse.csr_matrix(adj_matrix)
         eig_vals, eig_vects = scipy.linalg.eig(sparse_corr_mat)
         lambda_max = (1 + m.sqrt(len(self.company_list)/T))**2
-        lambda_min = (1 - m.sqrt(len(self.company_list)/T))**2
         max_eig_val = eig_vals.max()
 
         corr_r = np.zeros((len(self.company_list), len(self.company_list))) 
@@ -144,6 +143,6 @@ class Correlation():
         corr_s = corr_matrix - corr_r
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
 
-        return corr_g
+        return corr_s
     # ----------- multilayer correlations -----------------
     # TODO: here

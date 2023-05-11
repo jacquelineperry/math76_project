@@ -83,14 +83,14 @@ class NetworkGraph():
     
     def create_fisher_network(self, corr_type):
         corr= Correlation(self.historical_data) # 3.1  create correlation instance
-        adj_matrix = corr.get_fisher_matrix(corr_type) # 3.2 calculate correlation matrix
-        print("Adjacency matrix: \n", adj_matrix)
+        corr_matrix = corr.get_fisher_matrix(corr_type) # 3.2 calculate correlation matrix
 
-        self.adj_matrix = adj_matrix
-        self.G = nx.from_numpy_matrix(adj_matrix)
+        self.adj_matrix = corr_matrix
+        # self.G = nx.from_numpy_matrix(adj_matrix)
  
-        labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
-        self.G = nx.relabel_nodes(self.G, labels_mapping)
+        # labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
+        # self.G = nx.relabel_nodes(self.G, labels_mapping)
+        self.G = nx.Graph()
 
         attribute_dict = {}
 
@@ -111,6 +111,13 @@ class NetworkGraph():
         self.sector_list   =  list(dfsi['sector'])
 
         # print('node 0: ', self.G.nodes[0])
+
+        for j in range(len(self.company_list)-1, -1, -1):
+            for i in range(0, j+1):
+                comp1 = self.company_list[i]
+                comp2 = self.company_list[j]
+
+                self.G.add_edge(comp1, comp2, weight=self.adj_matrix[i][j])
 
         for i in range(0, len(self.company_list)):
             # print(company_list[i])
