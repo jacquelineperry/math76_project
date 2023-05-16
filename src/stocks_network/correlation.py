@@ -70,7 +70,7 @@ class Correlation():
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
 
         return adj_matrix
-
+    
 
     # ----------- multilayer correlations -----------------
     # TODO: here
