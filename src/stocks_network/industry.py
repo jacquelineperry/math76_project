@@ -46,8 +46,10 @@ class Industry():
                 
                 if (comp1 != comp2):
                     if self.sector_list[i] == self.sector_list[j]:
+                        print("sector: ",self.sector_list[i])
                         adj_matrix_sector[i][j] += 1
                     if self.industry_list[i] == self.industry_list[j]:
+                        print("industry: ",self.industry_list[i])
                         adj_matrix_industry[i][j] += 1
 
         adj_matrix_sector = adj_matrix_sector + adj_matrix_sector.T - np.diag(np.diag(adj_matrix_sector))
