@@ -5,6 +5,22 @@ import math as m
 import scipy
 import time
 
+# function for calculating volatility
+def ewma(df, weight):
+    vols = []
+    vols.append(0)
+    keys = []
+    
+    for i in range(1, len(df)):
+        ret = (df[i] - df[i-1])/df[i-1]
+        var = (weight*(vols[i-1]**2)) + ((1-weight)*(ret**2))
+        vol = m.sqrt(var)
+        vols.append(vol)
+        keys.append(-(len(df)+1-i))
+    
+    return list(np.array(vols[1:])*m.sqrt(252)*100)
+
+
 # Description
 
 # The Correlation class is designed to calculate and analyze the correlations between stock prices
@@ -68,11 +84,92 @@ class Correlation():
                         corr, p_val = kendalltau(prices[comp1], prices[comp2])
 
                     if abs(corr) >= self.corr_threshold and p_val <= 0.05:
-                        adj_matrix[i][j] += 1
+                        adj_matrix[i][j] += abs(corr)
 
         adj_matrix = adj_matrix + adj_matrix.T - np.diag(np.diag(adj_matrix))
 
         return adj_matrix
+
+    def get_ret_matrix(self, corr_type):
+        returns = pd.DataFrame()
+        for comp in self.company_list:
+            prices = self.historical_data[comp].copy()
+
+            if prices.empty:
+                continue
+
+            ret = []
+            for i in range(1, len(prices)):
+                ret.append(m.log(prices[i]/prices[i-1]))
+            returns[comp] = ret
+
+        corr_matrix = np.zeros((len(self.company_list), len(self.company_list))) # initialize to 2D array of zeroes
+
+        # Iterate over each pair of companies
+        for j in range(len(self.company_list)-1, -1, -1):
+            for i in range(0, j+1):
+                comp1 = self.company_list[i]
+                comp2 = self.company_list[j]
+                
+                if (comp1 != comp2):
+                    rets = returns[[comp1, comp2]].copy()
+                    rets.dropna(inplace=True)
+                    if rets.empty:
+                        continue
+
+                    corr, p_val = 0, 0
+                    if corr_type=="pearsonr": 
+                        corr, p_val = pearsonr(rets[comp1], rets[comp2])
+                    if corr_type=="spearmanr":
+                        corr, p_val = spearmanr(rets[comp1], rets[comp2])
+                    if corr_type=="kendalltau":
+                        corr, p_val = kendalltau(rets[comp1], rets[comp2])
+
+                    if abs(corr) > self.corr_threshold:
+                        corr_matrix[i][j] += corr
+
+        corr_matrix = corr_matrix + corr_matrix.T - np.diag(np.diag(corr_matrix))
+        return corr_matrix
+    
+
+    
+    def get_vol_matrix(self, corr_type):
+        volatility = pd.DataFrame()
+        for comp in self.company_list:
+            prices = self.historical_data[comp].copy()
+
+            if prices.empty:
+                continue
+
+            volatility[comp] = ewma(list(prices), 0.8)
+
+        corr_matrix = np.zeros((len(self.company_list), len(self.company_list))) # initialize to 2D array of zeroes
+
+        # Iterate over each pair of companies
+        for j in range(len(self.company_list)-1, -1, -1):
+            for i in range(0, j+1):
+                comp1 = self.company_list[i]
+                comp2 = self.company_list[j]
+                
+                if (comp1 != comp2):
+                    vols = volatility[[comp1, comp2]].copy()
+                    vols.dropna(inplace=True)
+                    if vols.empty:
+                        continue
+
+                    corr, p_val = 0, 0
+                    if corr_type=="pearsonr": 
+                        corr, p_val = pearsonr(vols[comp1], vols[comp2])
+                    if corr_type=="spearmanr":
+                        corr, p_val = spearmanr(vols[comp1], vols[comp2])
+                    if corr_type=="kendalltau":
+                        corr, p_val = kendalltau(vols[comp1], vols[comp2])
+
+                    if abs(corr) > self.corr_threshold:
+                        corr_matrix[i][j] += corr
+
+        corr_matrix = corr_matrix + corr_matrix.T - np.diag(np.diag(corr_matrix))
+        return corr_matrix
 
     def get_fisher_matrix(self, corr_type):
         returns = pd.DataFrame()
@@ -130,7 +227,7 @@ class Correlation():
         # Applying Random Matrix Theory
         corr_matrix = corr_matrix + corr_matrix.T - np.diag(np.diag(corr_matrix))
         sparse_corr_mat = scipy.sparse.csr_matrix(adj_matrix)
-        eig_vals, eig_vects = scipy.linalg.eig(sparse_corr_mat)
+        eig_vals, eig_vects = scipy.sparse.linalg.eig(sparse_corr_mat)
         lambda_max = (1 + m.sqrt(len(self.company_list)/T))**2
         max_eig_val = eig_vals.max()
 
@@ -139,9 +236,9 @@ class Correlation():
 
         for i in range(0, len(eig_vals)):
             if eig_vals[i] <= lambda_max:
-                corr_r += eig_vals[i] * eig_vects[:,i] * eig_vects[:,i].T
+                corr_r += eig_vals[i] * eig_vects[:,i] * np.conjugate(eig_vects[:,i]).T
             if lambda_max <= eig_vals[i] <= max_eig_val:
-                corr_g += eig_vals[i] * eig_vects[:,i] * eig_vects[:,i].T
+                corr_g += eig_vals[i] * eig_vects[:,i] * np.conjugate(eig_vects[:,i]).T
 
         corr_s = corr_matrix - corr_r
 

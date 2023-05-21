@@ -7,23 +7,101 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import sys
 import numpy as np
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import leidenalg as la
+import igraph as ig
+import cairo
 
 
 #%%
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    all_comps = pd.read_csv('data/constituents.csv')
     hist_data_weekly = pd.read_csv('data/historical_prices.csv')
     hist_data_daily = pd.read_csv('data/historical_prices_daily.csv')
-    network = NetworkGraph(hist_data_weekly)
-    # network.create_basic_network(corr_type="pearsonr")
-    network.create_fisher_network(corr_type='pearsonr')
+    comps = list(all_comps['Symbol'])
+    adj_comps = list(hist_data_weekly.columns)[1:]
+    new_comp_list = []
+
+    ## filtering companies by market cap. Will probably make a function from this
+    market_caps = []
+    for i in range(0, len(comps)):
+        comp = comps[i].replace(".", "-")
+        tick = yf.Ticker(comp)
+        market_cap = tick.info['marketCap']
+        market_caps.append(market_cap)
+
+    # market cap for whole S&P 500
+    sp_market_cap = sum(market_caps)
+
+    for i in range(0, len(adj_comps)):
+        tick = yf.Ticker(adj_comps[i])
+        market_cap = tick.info['marketCap']
+
+        if (market_cap/sp_market_cap) > 0.0008:
+            new_comp_list.append(adj_comps[i])
+
+    print(new_comp_list)
+    print(len(new_comp_list))
+
+    filt_data_weekly = hist_data_weekly.loc[:, new_comp_list]
+
+    #%%
+    print(sp_market_cap)
+    #%%
+
+    network = NetworkGraph(filt_data_weekly)
+    network.create_basic_network(corr_type="pearsonr", val_type='returns')
+    # network.create_fisher_network(corr_type='pearsonr')
 
     # print(network.G.nodes.data())
-    nx.write_gexf(network.G, 'weekly-data-3.gexf')
+    # nx.write_gexf(network.G, 'weekly-data-3.gexf')
 
+
+    #%%
+    network.G.remove_nodes_from(node for node, degree in dict(network.G.degree()).items() if degree < 2)
+    G = ig.Graph.from_networkx(network.G)
+    print(list(G.vs()))
+    partition = la.find_partition(G, la.CPMVertexPartition,
+                                   resolution_parameter = .02)
+    print(network.G.nodes)
+    print(partition.membership)
+    print(len(list(partition)))
+    ig.plot(partition, vertex_label=list(network.G.nodes))
+
+    # %%
+    print(partition.summary())
+
+    #%%
+    partitions = partition.membership
+    attribute_dict = {}
+    comp_list = list(network.G.nodes)
+    for i in range(0, len(comp_list)):
+        # print(company_list[i])
+        # tick = yf.Ticker(comp)
+        comp = comp_list[i]
+        attribute_dict[comp] = partitions[i]
+        # self.G.nodes[i]['sector'] = self.industry_list[i]
+
+    nx.set_node_attributes(network.G, attribute_dict, "leiden partition")
+
+    nx.write_gexf(network.G, 'leiden-part-2.gexf')
+
+    #%%
+    clusters = {}
+    part_list = list(partition)
+    for i in range(0, len(part_list)):
+        clusters[i] = []
+
+        for j in part_list[i]:
+            # node_name = comp_list[j]
+            node = G.vs.find(j)
+            sector = node.attributes()['sector']
+
+            clusters[i].append(sector)
+
+    print(clusters)
+
+    for i in range(0, len(clusters)):
+        print(np.unique(np.array(clusters[i])))
 
     #%%
     np.set_printoptions(threshold=sys.maxsize)

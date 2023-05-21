@@ -28,20 +28,27 @@ class NetworkGraph():
         self.G = None
         self.adj_matrix = None
 
-    def create_basic_network(self, corr_type):
+    def create_basic_network(self, corr_type, val_type='close'):
         """
         Creates a basic network graph with nodes for each company and edges for each pair of companies with a correlation
         above the threshold.
         Inputs:
             self.historical_data (pd.DataFrame): The historical stock price data for each company.
             self.correlation_threshold (float): The threshold for the correlation between two companies.
+            val_type (string): can be either 'close', 'returns', or 'vol'
         Returns:
             G (nx.Graph): The network graph.
         """
 
 
         corr= Correlation(self.historical_data) # 3.1  create correlation instance
-        adj_matrix = corr.get_adj_matrix(corr_type) # 3.2 calculate correlation matrix
+        if val_type == 'close':
+            adj_matrix = corr.get_adj_matrix(corr_type) # 3.2 calculate correlation matrix
+        elif val_type == 'returns':
+            adj_matrix = corr.get_ret_matrix(corr_type)
+        elif val_type == 'vol':
+            adj_matrix = corr.get_vol_matrix(corr_type)
+
         print("Adjacency matrix: \n", adj_matrix)
 
         self.adj_matrix = adj_matrix
@@ -68,18 +75,15 @@ class NetworkGraph():
         self.industry_list =  list(dfsi['industry'])
         self.sector_list   =  list(dfsi['sector'])
 
-        # print('node 0: ', self.G.nodes[0])
-
         for i in range(0, len(self.company_list)):
-            # print(company_list[i])
-            # tick = yf.Ticker(comp)
             comp = self.company_list[i]
             attribute_dict[comp] = self.sector_list[i]
-            # self.G.nodes[i]['sector'] = self.industry_list[i]
 
         nx.set_node_attributes(self.G, attribute_dict, "sector")
     
         return self.G
+    
+
     
     def create_fisher_network(self, corr_type):
         corr= Correlation(self.historical_data) # 3.1  create correlation instance
@@ -120,11 +124,8 @@ class NetworkGraph():
                 self.G.add_edge(comp1, comp2, weight=self.adj_matrix[i][j])
 
         for i in range(0, len(self.company_list)):
-            # print(company_list[i])
-            # tick = yf.Ticker(comp)
             comp = self.company_list[i]
             attribute_dict[comp] = self.sector_list[i]
-            # self.G.nodes[i]['sector'] = self.industry_list[i]
 
         nx.set_node_attributes(self.G, attribute_dict, "sector")
     
