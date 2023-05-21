@@ -17,10 +17,11 @@ import pandas as pd
 # print('Adj Matrix Industry \n',test1.get_adj_matrices()[1])
 
 # %%
-# hist_data_weekly = pd.read_csv(r'C:\Users\coope\Documents\Math 76\math76_project\data\historical_prices.csv')
-# test = NetworkGraph(hist_data_weekly)
-# graph = test.create_sector_network()
-# graph2 = test.create_industry_network()
+hist_data_weekly = pd.read_csv(r'C:\Users\coope\Documents\Math 76\math76_project\data\historical_prices.csv')
+test = NetworkGraph(hist_data_weekly)
+graph0 = test.create_basic_network("pearsonr")
+#graph = test.create_sector_network()
+#graph2 = test.create_industry_network()
 
 #test_list = test.company_list
 #print(test_list)
