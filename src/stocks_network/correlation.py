@@ -25,20 +25,15 @@ def ewma(df, weight):
 
 # The Correlation class is designed to calculate and analyze the correlations between stock prices
 #  of different companies based on their historical data. The class provides methods for calculating
-#   cross-correlation, Pearson correlation, and their respective adjacency matrices.
+#  Pearson's r correlation, spearman's rho, and kendall's tau and their respective adjacency matrices.
 
 # Pearson correlation is a measure of the linear relationship between two variables and ranges from -1
 # (perfect negative correlation) to 1 (perfect positive correlation), with 0 indicating no correlation.
 # It is useful when the data is normally distributed and the relationship between the variables is linear. 
 # Pearson correlation is also computationally efficient and easier to interpret than cross-correlation.
 
-# On the other hand, cross-correlation is a measure of the similarity between two time series as a function of
-# the time lag applied to one of them. It can detect non-linear relationships and identify the lag between
-# two time series that maximizes their similarity. However, cross-correlation is more computationally expensive
-# and requires additional parameters such as the maximum lag to search.
-
-# In the context of our stock price analysis, both measures will be used and compared to gain insights into the 
-# relationships between companies.
+# Correlations are computed for the upper triangle of the matrix and then reflected. Diagonal is set as 0,
+# so there are not self-edges.
 
 
 class Correlation():
@@ -48,10 +43,9 @@ class Correlation():
         self.company_list = list(historical_data.columns)[1:]
         self.corr_threshold = corr_threshold
 
-    
     def get_adj_matrix(self, corr_type):
         """
-        Computes the adjacency matrix for stock price correlations.
+        Computes the adjacency matrix for close price correlations.
         
         Args:
             self.historical_data (pd.DataFrame): The historical stock price data for each company.
@@ -91,6 +85,17 @@ class Correlation():
         return adj_matrix
 
     def get_ret_matrix(self, corr_type):
+        """
+        Computes the adjacency matrix for log-returns of close price correlations.
+        
+        Args:
+            self.historical_data (pd.DataFrame): The historical stock price data for each company.
+            corr_type (string): type of correlation (pearsonr, spearmanr, kendalltau)
+            
+        Returns:
+            adjacency matrix based on significant correlations with appropriate p-value
+        """
+                
         returns = pd.DataFrame()
         for comp in self.company_list:
             prices = self.historical_data[comp].copy()
@@ -132,6 +137,17 @@ class Correlation():
         return corr_matrix
     
     def get_vol_matrix(self, corr_type):
+        """
+        Computes the adjacency matrix for volatility of close price correlations.
+        
+        Args:
+            self.historical_data (pd.DataFrame): The historical stock price data for each company.
+            corr_type (string): type of correlation (pearsonr, spearmanr, kendalltau)
+            
+        Returns:
+            adjacency matrix based on significant correlations with appropriate p-value
+        """
+
         volatility = pd.DataFrame()
         for comp in self.company_list:
             prices = self.historical_data[comp].copy()

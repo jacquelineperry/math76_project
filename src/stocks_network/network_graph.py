@@ -20,7 +20,7 @@ class NetworkGraph():
             of unique company symbols found in the data.
         """
   
-        # 1. setting up data files
+        # setting up data files
         self.historical_data =  self.historical_data = historical_data
         self.company_list = list(historical_data.columns)[1:]
 
@@ -40,10 +40,12 @@ class NetworkGraph():
             G (nx.Graph): The network graph.
         """
 
+        # create correlation instance
+        corr= Correlation(self.historical_data) 
 
-        corr= Correlation(self.historical_data) # 3.1  create correlation instance
+        # calculate correlation matrix
         if val_type == 'close':
-            adj_matrix = corr.get_adj_matrix(corr_type) # 3.2 calculate correlation matrix
+            adj_matrix = corr.get_adj_matrix(corr_type) 
         elif val_type == 'returns':
             adj_matrix = corr.get_ret_matrix(corr_type)
         elif val_type == 'vol':
@@ -53,10 +55,12 @@ class NetworkGraph():
 
         self.adj_matrix = adj_matrix
         self.G = nx.from_numpy_matrix(adj_matrix)
- 
+
+        # relabel nodes to stock tickers
         labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
         self.G = nx.relabel_nodes(self.G, labels_mapping)
 
+        # adding industry and sector as node attributes
         attribute_dict_sector = {}
         attribute_dict_industry = {}
 
@@ -72,7 +76,6 @@ class NetworkGraph():
         dfsi = dfsi.set_index('symbol')
         dfsi = dfsi.loc[self.company_list]
   
-        # 1. setting up data files
         self.industry_list =  list(dfsi['industry'])
         self.sector_list   =  list(dfsi['sector'])
 
