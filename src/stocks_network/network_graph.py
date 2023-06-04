@@ -57,7 +57,8 @@ class NetworkGraph():
         labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
         self.G = nx.relabel_nodes(self.G, labels_mapping)
 
-        attribute_dict = {}
+        attribute_dict_sector = {}
+        attribute_dict_industry = {}
 
         tickers = Ticker(self.company_list, asynchronous=True)
 
@@ -77,56 +78,11 @@ class NetworkGraph():
 
         for i in range(0, len(self.company_list)):
             comp = self.company_list[i]
-            attribute_dict[comp] = self.sector_list[i]
+            attribute_dict_sector[comp] = self.sector_list[i]
+            attribute_dict_industry[comp] = self.industry_list[i]
 
-        nx.set_node_attributes(self.G, attribute_dict, "sector")
+        nx.set_node_attributes(self.G, attribute_dict_sector, "sector")
+        nx.set_node_attributes(self.G, attribute_dict_industry, "industry")
     
         return self.G
     
-
-    
-    def create_fisher_network(self, corr_type):
-        corr= Correlation(self.historical_data) # 3.1  create correlation instance
-        corr_matrix = corr.get_fisher_matrix(corr_type) # 3.2 calculate correlation matrix
-
-        self.adj_matrix = corr_matrix
-        # self.G = nx.from_numpy_matrix(adj_matrix)
- 
-        # labels_mapping = dict(zip(list(range(0, len(self.company_list))), self.company_list))
-        # self.G = nx.relabel_nodes(self.G, labels_mapping)
-        self.G = nx.Graph()
-
-        attribute_dict = {}
-
-        tickers = Ticker(self.company_list, asynchronous=True)
-
-        datasi = tickers.get_modules("summaryProfile quoteType")
-        dfsi = pd.DataFrame.from_dict(datasi).T
-        dataframes = [pd.json_normalize([x for x in dfsi[module] if isinstance(x, dict)]) for
-        module in ['summaryProfile', 'quoteType']]
-
-        dfsi = pd.concat(dataframes, axis=1)
-
-        dfsi = dfsi.set_index('symbol')
-        dfsi = dfsi.loc[self.company_list]
-  
-        # 1. setting up data files
-        self.industry_list =  list(dfsi['industry'])
-        self.sector_list   =  list(dfsi['sector'])
-
-        # print('node 0: ', self.G.nodes[0])
-
-        for j in range(len(self.company_list)-1, -1, -1):
-            for i in range(0, j+1):
-                comp1 = self.company_list[i]
-                comp2 = self.company_list[j]
-
-                self.G.add_edge(comp1, comp2, weight=self.adj_matrix[i][j])
-
-        for i in range(0, len(self.company_list)):
-            comp = self.company_list[i]
-            attribute_dict[comp] = self.sector_list[i]
-
-        nx.set_node_attributes(self.G, attribute_dict, "sector")
-    
-        return self.G

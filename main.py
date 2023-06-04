@@ -10,7 +10,25 @@ import numpy as np
 import leidenalg as la
 import igraph as ig
 import cairo
+import seaborn as sns
 
+def get_la_partition(network, res_param):
+    G = ig.Graph.from_networkx(network.G)
+    partition = la.find_partition(G, la.CPMVertexPartition,
+                                   resolution_parameter = res_param)
+    clusters_sectors = {}
+    part_list = list(partition)
+    for i in range(0, len(part_list)):
+        clusters_sectors[i] = []
+
+        for j in part_list[i]:
+            # node_name = comp_list[j]
+            node = G.vs.find(j)
+            sector = node.attributes()['sector']
+
+            clusters_sectors[i].append(sector)
+
+    return G, partition, clusters_sectors
 
 #%%
 if __name__ == '__main__':
@@ -48,32 +66,54 @@ if __name__ == '__main__':
     print(sp_market_cap)
     #%%
 
-    network = NetworkGraph(filt_data_weekly)
-    network.create_basic_network(corr_type="pearsonr", val_type='returns')
-    # network.create_fisher_network(corr_type='pearsonr')
+    filt_network = NetworkGraph(filt_data_weekly)
+    filt_network.create_basic_network(corr_type="pearsonr", val_type='vol')
+    # unfilt_network = NetworkGraph(hist_data_weekly)
+    # unfilt_network.create_basic_network(corr_type="pearsonr", val_type='close')
 
     # print(network.G.nodes.data())
-    # nx.write_gexf(network.G, 'weekly-data-3.gexf')
-
+    # nx.write_gexf(filt_network.G, 'weekly-data-4.gexf')
 
     #%%
-    network.G.remove_nodes_from(node for node, degree in dict(network.G.degree()).items() if degree < 2)
-    G = ig.Graph.from_networkx(network.G)
+    filt_network.G.remove_nodes_from(node for node, degree in dict(filt_network.G.degree()).items() if degree <= 2)
+    # nx.write_gexf(filt_network.G, 'leiden-part-2.gexf')
+    # nx.write_gexf(filt_network.G, 'weekly-data-5.gexf')
+
+    
+    G = ig.Graph.from_networkx(filt_network.G)
+    # print(list(G.vs()))
+    #%%
+    filt_partition = la.find_partition(G, la.CPMVertexPartition,
+                                   resolution_parameter = .01)
+    # print(network.G.nodes)
+    # print(partition.membership)
+    # print(len(list(partition)))
+    print(filt_partition.summary())
+    # ig.plot(filt_partition, layout='graphopt', vertex_label=list(filt_network.G.nodes))
+    G.vs['label'] = G.vs['_nx_name']
     print(list(G.vs()))
-    partition = la.find_partition(G, la.CPMVertexPartition,
-                                   resolution_parameter = .02)
-    print(network.G.nodes)
-    print(partition.membership)
-    print(len(list(partition)))
-    ig.plot(partition, vertex_label=list(network.G.nodes))
+    ig.plot(filt_partition, layout='graphopt', vertex_label = G.vs['label'])
+
+
+    #%% 
+    unfilt_network.G.remove_nodes_from(node for node, degree in dict(unfilt_network.G.degree()).items() if degree < 2)
+    G_unfilt = ig.Graph.from_networkx(unfilt_network.G)
+    # G_unfilt.vs['label'] = G_unfilt.vs['_nx_name']
+    unfilt_partition = la.find_partition(G_unfilt, la.CPMVertexPartition,
+                                   resolution_parameter = .01)
+    print(unfilt_partition.summary())
+    ig.plot(unfilt_partition)
+
 
     # %%
-    print(partition.summary())
+    # nx.write_gexf(unfilt_network.G, "unfilt-graph.gexf")
+    print(filt_partition.summary())
+    # print(unfilt_partition.summary())
 
     #%%
-    partitions = partition.membership
+    partitions = filt_partition.membership
     attribute_dict = {}
-    comp_list = list(network.G.nodes)
+    comp_list = list(filt_network.G.nodes)
     for i in range(0, len(comp_list)):
         # print(company_list[i])
         # tick = yf.Ticker(comp)
@@ -81,13 +121,13 @@ if __name__ == '__main__':
         attribute_dict[comp] = partitions[i]
         # self.G.nodes[i]['sector'] = self.industry_list[i]
 
-    nx.set_node_attributes(network.G, attribute_dict, "leiden partition")
+    nx.set_node_attributes(filt_network.G, attribute_dict, "leiden partition")
 
-    nx.write_gexf(network.G, 'leiden-part-2.gexf')
+    nx.write_gexf(filt_network.G, 'leiden-part-2.gexf')
 
     #%%
     clusters = {}
-    part_list = list(partition)
+    part_list = list(filt_partition)
     for i in range(0, len(part_list)):
         clusters[i] = []
 
@@ -105,7 +145,7 @@ if __name__ == '__main__':
 
     #%%
     np.set_printoptions(threshold=sys.maxsize)
-    print(network.adj_matrix)
+    print(filt_network.adj_matrix)
     # nx.write_gexf(network.G, 'weekly-data-3.gexf')
     # pos = nx.spring_layout(network.G, 0.5)
     # nx.draw(network.G, pos)

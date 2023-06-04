@@ -1,0 +1,1222 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2023-05-25">
+    <creator>NetworkX 2.6.3</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="sector" type="string" />
+      <attribute id="1" title="industry" type="string" />
+    </attributes>
+    <nodes>
+      <node id="AEE" label="AEE">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="AEP" label="AEP">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="AFL" label="AFL">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Insurance—Life" />
+        </attvalues>
+      </node>
+      <node id="AIG" label="AIG">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Insurance—Diversified" />
+        </attvalues>
+      </node>
+      <node id="ALK" label="ALK">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Airlines" />
+        </attvalues>
+      </node>
+      <node id="AME" label="AME">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Specialty Industrial Machinery" />
+        </attvalues>
+      </node>
+      <node id="AMP" label="AMP">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Asset Management" />
+        </attvalues>
+      </node>
+      <node id="APA" label="APA">
+        <attvalues>
+          <attvalue for="0" value="Energy" />
+          <attvalue for="1" value="Oil &amp; Gas E&amp;P" />
+        </attvalues>
+      </node>
+      <node id="ARE" label="ARE">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Office" />
+        </attvalues>
+      </node>
+      <node id="ATO" label="ATO">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Gas" />
+        </attvalues>
+      </node>
+      <node id="AVB" label="AVB">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Residential" />
+        </attvalues>
+      </node>
+      <node id="AWK" label="AWK">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Water" />
+        </attvalues>
+      </node>
+      <node id="AXP" label="AXP">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Credit Services" />
+        </attvalues>
+      </node>
+      <node id="BAC" label="BAC">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Banks—Diversified" />
+        </attvalues>
+      </node>
+      <node id="BK" label="BK">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Asset Management" />
+        </attvalues>
+      </node>
+      <node id="BXP" label="BXP">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Office" />
+        </attvalues>
+      </node>
+      <node id="C" label="C">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Banks—Diversified" />
+        </attvalues>
+      </node>
+      <node id="CB" label="CB">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Financial Data &amp; Stock Exchanges" />
+        </attvalues>
+      </node>
+      <node id="CCL" label="CCL">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="Real Estate Services" />
+        </attvalues>
+      </node>
+      <node id="CFG" label="CFG">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Telecom Services" />
+        </attvalues>
+      </node>
+      <node id="CMA" label="CMA">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Restaurants" />
+        </attvalues>
+      </node>
+      <node id="CMS" label="CMS">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Healthcare Plans" />
+        </attvalues>
+      </node>
+      <node id="COF" label="COF">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Medical Instruments &amp; Supplies" />
+        </attvalues>
+      </node>
+      <node id="COP" label="COP">
+        <attvalues>
+          <attvalue for="0" value="Consumer Defensive" />
+          <attvalue for="1" value="Packaged Foods" />
+        </attvalues>
+      </node>
+      <node id="CPT" label="CPT">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Auto &amp; Truck Dealerships" />
+        </attvalues>
+      </node>
+      <node id="DAL" label="DAL">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="DFS" label="DFS">
+        <attvalues>
+          <attvalue for="0" value="Consumer Defensive" />
+          <attvalue for="1" value="Discount Stores" />
+        </attvalues>
+      </node>
+      <node id="DHI" label="DHI">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Diagnostics &amp; Research" />
+        </attvalues>
+      </node>
+      <node id="DOV" label="DOV">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Restaurants" />
+        </attvalues>
+      </node>
+      <node id="DTE" label="DTE">
+        <attvalues>
+          <attvalue for="0" value="Energy" />
+          <attvalue for="1" value="Oil &amp; Gas E&amp;P" />
+        </attvalues>
+      </node>
+      <node id="DUK" label="DUK">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="DVN" label="DVN">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Medical Care Facilities" />
+        </attvalues>
+      </node>
+      <node id="ED" label="ED">
+        <attvalues>
+          <attvalue for="0" value="Consumer Defensive" />
+          <attvalue for="1" value="Household &amp; Personal Products" />
+        </attvalues>
+      </node>
+      <node id="EMN" label="EMN">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Solar" />
+        </attvalues>
+      </node>
+      <node id="EMR" label="EMR">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Specialty Chemicals" />
+        </attvalues>
+      </node>
+      <node id="EOG" label="EOG">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Residential" />
+        </attvalues>
+      </node>
+      <node id="EQR" label="EQR">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Residential" />
+        </attvalues>
+      </node>
+      <node id="ES" label="ES">
+        <attvalues>
+          <attvalue for="0" value="Energy" />
+          <attvalue for="1" value="Oil &amp; Gas E&amp;P" />
+        </attvalues>
+      </node>
+      <node id="ESS" label="ESS">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="ETN" label="ETN">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="ETR" label="ETR">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Internet Retail" />
+        </attvalues>
+      </node>
+      <node id="EVRG" label="EVRG">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Medical Devices" />
+        </attvalues>
+      </node>
+      <node id="EXC" label="EXC">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Industrial" />
+        </attvalues>
+      </node>
+      <node id="FANG" label="FANG">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Copper" />
+        </attvalues>
+      </node>
+      <node id="FITB" label="FITB">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Retail" />
+        </attvalues>
+      </node>
+      <node id="FRT" label="FRT">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Agricultural Inputs" />
+        </attvalues>
+      </node>
+      <node id="GL" label="GL">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Internet Content &amp; Information" />
+        </attvalues>
+      </node>
+      <node id="GPN" label="GPN">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Capital Markets" />
+        </attvalues>
+      </node>
+      <node id="GS" label="GS">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Scientific &amp; Technical Instruments" />
+        </attvalues>
+      </node>
+      <node id="HAL" label="HAL">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Banks—Regional" />
+        </attvalues>
+      </node>
+      <node id="HBAN" label="HBAN">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Industrial Distribution" />
+        </attvalues>
+      </node>
+      <node id="HES" label="HES">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Insurance—Diversified" />
+        </attvalues>
+      </node>
+      <node id="HIG" label="HIG">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Aerospace &amp; Defense" />
+        </attvalues>
+      </node>
+      <node id="HON" label="HON">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Lodging" />
+        </attvalues>
+      </node>
+      <node id="INVH" label="INVH">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Diagnostics &amp; Research" />
+        </attvalues>
+      </node>
+      <node id="ITW" label="ITW">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Integrated Freight &amp; Logistics" />
+        </attvalues>
+      </node>
+      <node id="JPM" label="JPM">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Communication Equipment" />
+        </attvalues>
+      </node>
+      <node id="KEY" label="KEY">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Scientific &amp; Technical Instruments" />
+        </attvalues>
+      </node>
+      <node id="KIM" label="KIM">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Semiconductor Equipment &amp; Materials" />
+        </attvalues>
+      </node>
+      <node id="L" label="L">
+        <attvalues>
+          <attvalue for="0" value="Consumer Defensive" />
+          <attvalue for="1" value="Beverages—Non-Alcoholic" />
+        </attvalues>
+      </node>
+      <node id="LEN" label="LEN">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Specialty Chemicals" />
+        </attvalues>
+      </node>
+      <node id="LNC" label="LNC">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Diagnostics &amp; Research" />
+        </attvalues>
+      </node>
+      <node id="LNT" label="LNT">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Aerospace &amp; Defense" />
+        </attvalues>
+      </node>
+      <node id="LRCX" label="LRCX">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Airlines" />
+        </attvalues>
+      </node>
+      <node id="LUV" label="LUV">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Resorts &amp; Casinos" />
+        </attvalues>
+      </node>
+      <node id="MAA" label="MAA">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Credit Services" />
+        </attvalues>
+      </node>
+      <node id="MCHP" label="MCHP">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Medical Distribution" />
+        </attvalues>
+      </node>
+      <node id="MET" label="MET">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Internet Content &amp; Information" />
+        </attvalues>
+      </node>
+      <node id="MMC" label="MMC">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Conglomerates" />
+        </attvalues>
+      </node>
+      <node id="MRO" label="MRO">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Capital Markets" />
+        </attvalues>
+      </node>
+      <node id="MS" label="MS">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Financial Data &amp; Stock Exchanges" />
+        </attvalues>
+      </node>
+      <node id="MTB" label="MTB">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Diagnostics &amp; Research" />
+        </attvalues>
+      </node>
+      <node id="NI" label="NI">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Gold" />
+        </attvalues>
+      </node>
+      <node id="NTRS" label="NTRS">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Semiconductors" />
+        </attvalues>
+      </node>
+      <node id="NVR" label="NVR">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Entertainment" />
+        </attvalues>
+      </node>
+      <node id="O" label="O">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Semiconductors" />
+        </attvalues>
+      </node>
+      <node id="OKE" label="OKE">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Advertising Agencies" />
+        </attvalues>
+      </node>
+      <node id="OXY" label="OXY">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Software—Application" />
+        </attvalues>
+      </node>
+      <node id="PEAK" label="PEAK">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Drug Manufacturers—General" />
+        </attvalues>
+      </node>
+      <node id="PEG" label="PEG">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Asset Management" />
+        </attvalues>
+      </node>
+      <node id="PFG" label="PFG">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Insurance—Property &amp; Casualty" />
+        </attvalues>
+      </node>
+      <node id="PH" label="PH">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Industrial" />
+        </attvalues>
+      </node>
+      <node id="PHM" label="PHM">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Packaging &amp; Containers" />
+        </attvalues>
+      </node>
+      <node id="PNC" label="PNC">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Specialty Industrial Machinery" />
+        </attvalues>
+      </node>
+      <node id="PNW" label="PNW">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Specialty Chemicals" />
+        </attvalues>
+      </node>
+      <node id="PPL" label="PPL">
+        <attvalues>
+          <attvalue for="0" value="Real Estate" />
+          <attvalue for="1" value="REIT—Industrial" />
+        </attvalues>
+      </node>
+      <node id="PRU" label="PRU">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Industrial Distribution" />
+        </attvalues>
+      </node>
+      <node id="PXD" label="PXD">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Semiconductors" />
+        </attvalues>
+      </node>
+      <node id="REG" label="REG">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Apparel Manufacturing" />
+        </attvalues>
+      </node>
+      <node id="RF" label="RF">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Specialty Industrial Machinery" />
+        </attvalues>
+      </node>
+      <node id="RTX" label="RTX">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Solar" />
+        </attvalues>
+      </node>
+      <node id="SLB" label="SLB">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Software—Infrastructure" />
+        </attvalues>
+      </node>
+      <node id="SO" label="SO">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Financial Data &amp; Stock Exchanges" />
+        </attvalues>
+      </node>
+      <node id="SPG" label="SPG">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Regulated Electric" />
+        </attvalues>
+      </node>
+      <node id="SRE" label="SRE">
+        <attvalues>
+          <attvalue for="0" value="Basic Materials" />
+          <attvalue for="1" value="Steel" />
+        </attvalues>
+      </node>
+      <node id="STT" label="STT">
+        <attvalues>
+          <attvalue for="0" value="Utilities" />
+          <attvalue for="1" value="Utilities—Diversified" />
+        </attvalues>
+      </node>
+      <node id="SYF" label="SYF">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Medical Devices" />
+        </attvalues>
+      </node>
+      <node id="TEL" label="TEL">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Banks—Regional" />
+        </attvalues>
+      </node>
+      <node id="TFC" label="TFC">
+        <attvalues>
+          <attvalue for="0" value="Consumer Defensive" />
+          <attvalue for="1" value="Discount Stores" />
+        </attvalues>
+      </node>
+      <node id="TRV" label="TRV">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Auto Manufacturers" />
+        </attvalues>
+      </node>
+      <node id="TT" label="TT">
+        <attvalues>
+          <attvalue for="0" value="Communication Services" />
+          <attvalue for="1" value="Electronic Gaming &amp; Multimedia" />
+        </attvalues>
+      </node>
+      <node id="UAL" label="UAL">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Software—Application" />
+        </attvalues>
+      </node>
+      <node id="UDR" label="UDR">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Aerospace &amp; Defense" />
+        </attvalues>
+      </node>
+      <node id="USB" label="USB">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Consulting Services" />
+        </attvalues>
+      </node>
+      <node id="VTR" label="VTR">
+        <attvalues>
+          <attvalue for="0" value="Technology" />
+          <attvalue for="1" value="Computer Hardware" />
+        </attvalues>
+      </node>
+      <node id="WEC" label="WEC">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Banks—Diversified" />
+        </attvalues>
+      </node>
+      <node id="WFC" label="WFC">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Furnishings, Fixtures &amp; Appliances" />
+        </attvalues>
+      </node>
+      <node id="WRB" label="WRB">
+        <attvalues>
+          <attvalue for="0" value="Consumer Cyclical" />
+          <attvalue for="1" value="Packaging &amp; Containers" />
+        </attvalues>
+      </node>
+      <node id="XEL" label="XEL">
+        <attvalues>
+          <attvalue for="0" value="Industrials" />
+          <attvalue for="1" value="Specialty Industrial Machinery" />
+        </attvalues>
+      </node>
+      <node id="XOM" label="XOM">
+        <attvalues>
+          <attvalue for="0" value="Financial Services" />
+          <attvalue for="1" value="Insurance Brokers" />
+        </attvalues>
+      </node>
+      <node id="ZION" label="ZION">
+        <attvalues>
+          <attvalue for="0" value="Healthcare" />
+          <attvalue for="1" value="Drug Manufacturers—Specialty &amp; Generic" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="AEE" target="AEP" id="0" weight="0.8919741644108763" />
+      <edge source="AEE" target="ATO" id="1" weight="0.8353794516190575" />
+      <edge source="AEE" target="AWK" id="2" weight="0.8437816798145629" />
+      <edge source="AEE" target="CMS" id="3" weight="0.9208962124935655" />
+      <edge source="AEE" target="DTE" id="4" weight="0.8569395438339252" />
+      <edge source="AEE" target="DUK" id="5" weight="0.8702171520837756" />
+      <edge source="AEE" target="ED" id="6" weight="0.821575717002229" />
+      <edge source="AEE" target="ES" id="7" weight="0.8601137734924011" />
+      <edge source="AEE" target="ETR" id="8" weight="0.8643133994619611" />
+      <edge source="AEE" target="EVRG" id="9" weight="0.8166327705395815" />
+      <edge source="AEE" target="EXC" id="10" weight="0.8214489746722411" />
+      <edge source="AEE" target="LNT" id="11" weight="0.9229433907518569" />
+      <edge source="AEE" target="NI" id="12" weight="0.8390070641472318" />
+      <edge source="AEE" target="PEG" id="13" weight="0.8028860329852544" />
+      <edge source="AEE" target="PNW" id="14" weight="0.8558050894470709" />
+      <edge source="AEE" target="PPL" id="15" weight="0.8018053361536862" />
+      <edge source="AEE" target="SO" id="16" weight="0.8366536947498217" />
+      <edge source="AEE" target="WEC" id="17" weight="0.9012576562401597" />
+      <edge source="AEE" target="XEL" id="18" weight="0.8817888386965321" />
+      <edge source="AEP" target="ATO" id="19" weight="0.8059564463430109" />
+      <edge source="AEP" target="AWK" id="20" weight="0.8178358119638774" />
+      <edge source="AEP" target="CMS" id="21" weight="0.9085041803941619" />
+      <edge source="AEP" target="DTE" id="22" weight="0.8486713538805629" />
+      <edge source="AEP" target="DUK" id="23" weight="0.8800800000106944" />
+      <edge source="AEP" target="ED" id="24" weight="0.8005778259168477" />
+      <edge source="AEP" target="ES" id="25" weight="0.8585974067207908" />
+      <edge source="AEP" target="ETR" id="26" weight="0.8800121531460118" />
+      <edge source="AEP" target="EVRG" id="27" weight="0.8241067009064483" />
+      <edge source="AEP" target="LNT" id="28" weight="0.897118096543116" />
+      <edge source="AEP" target="NI" id="29" weight="0.8364523561611389" />
+      <edge source="AEP" target="PEG" id="30" weight="0.8003932749615965" />
+      <edge source="AEP" target="PNW" id="31" weight="0.8704606249477777" />
+      <edge source="AEP" target="PPL" id="32" weight="0.8061339720000966" />
+      <edge source="AEP" target="SO" id="33" weight="0.8548020767711375" />
+      <edge source="AEP" target="WEC" id="34" weight="0.8746216910305955" />
+      <edge source="AEP" target="XEL" id="35" weight="0.8766689772027455" />
+      <edge source="AFL" target="AIG" id="36" weight="0.8144825701874971" />
+      <edge source="AFL" target="GL" id="37" weight="0.8332104767281449" />
+      <edge source="AFL" target="HON" id="38" weight="0.8084553397839223" />
+      <edge source="AFL" target="MET" id="39" weight="0.8712519061627108" />
+      <edge source="AFL" target="PFG" id="40" weight="0.8503906822506521" />
+      <edge source="AFL" target="PRU" id="41" weight="0.8572817928397972" />
+      <edge source="AFL" target="RTX" id="42" weight="0.8002385299521826" />
+      <edge source="AIG" target="DFS" id="43" weight="0.8257649704001813" />
+      <edge source="AIG" target="FITB" id="44" weight="0.8341310293813369" />
+      <edge source="AIG" target="HIG" id="45" weight="0.8005108371996517" />
+      <edge source="AIG" target="KEY" id="46" weight="0.8174437120585986" />
+      <edge source="AIG" target="LNC" id="47" weight="0.8136566715296719" />
+      <edge source="AIG" target="MET" id="48" weight="0.8658982167113161" />
+      <edge source="AIG" target="PFG" id="49" weight="0.8592569995790096" />
+      <edge source="AIG" target="PRU" id="50" weight="0.8375081359271719" />
+      <edge source="ALK" target="DAL" id="51" weight="0.8849884318766201" />
+      <edge source="ALK" target="LUV" id="52" weight="0.8505859072550627" />
+      <edge source="ALK" target="UAL" id="53" weight="0.8708521900644711" />
+      <edge source="AME" target="EMR" id="54" weight="0.8153988682580933" />
+      <edge source="AME" target="ETN" id="55" weight="0.8424939539512306" />
+      <edge source="AME" target="HON" id="56" weight="0.8339045669597216" />
+      <edge source="AME" target="ITW" id="57" weight="0.8160695832160869" />
+      <edge source="AME" target="PH" id="58" weight="0.8332155200097559" />
+      <edge source="AMP" target="AXP" id="59" weight="0.8011672182070115" />
+      <edge source="AMP" target="BAC" id="60" weight="0.8143186924939627" />
+      <edge source="AMP" target="CFG" id="61" weight="0.8225478674798703" />
+      <edge source="AMP" target="COF" id="62" weight="0.8018199263148222" />
+      <edge source="AMP" target="FITB" id="63" weight="0.8122986790597235" />
+      <edge source="AMP" target="GS" id="64" weight="0.808371905304215" />
+      <edge source="AMP" target="JPM" id="65" weight="0.8201386981716567" />
+      <edge source="AMP" target="KEY" id="66" weight="0.826022271032273" />
+      <edge source="AMP" target="MET" id="67" weight="0.8608405898060874" />
+      <edge source="AMP" target="MS" id="68" weight="0.804429860713808" />
+      <edge source="AMP" target="PFG" id="69" weight="0.8594722251589226" />
+      <edge source="AMP" target="PH" id="70" weight="0.80520945548471" />
+      <edge source="AMP" target="PNC" id="71" weight="0.8150304515628352" />
+      <edge source="AMP" target="PRU" id="72" weight="0.858995522980994" />
+      <edge source="AMP" target="TFC" id="73" weight="0.8144509501491325" />
+      <edge source="APA" target="DVN" id="74" weight="0.8084428047000219" />
+      <edge source="APA" target="HAL" id="75" weight="0.8094885907554217" />
+      <edge source="APA" target="MRO" id="76" weight="0.8226024428860796" />
+      <edge source="APA" target="OKE" id="77" weight="0.8046204123865952" />
+      <edge source="APA" target="OXY" id="78" weight="0.8179166315155912" />
+      <edge source="ARE" target="CPT" id="79" weight="0.8248989967393416" />
+      <edge source="ARE" target="MAA" id="80" weight="0.8268621403281947" />
+      <edge source="ARE" target="UDR" id="81" weight="0.8107495768692414" />
+      <edge source="ATO" target="CMS" id="82" weight="0.835600463750175" />
+      <edge source="ATO" target="LNT" id="83" weight="0.8368075264505289" />
+      <edge source="ATO" target="NI" id="84" weight="0.8108368570445724" />
+      <edge source="ATO" target="PNW" id="85" weight="0.8199142006705764" />
+      <edge source="ATO" target="WEC" id="86" weight="0.8019230648302993" />
+      <edge source="ATO" target="XEL" id="87" weight="0.8074322627581888" />
+      <edge source="AVB" target="BXP" id="88" weight="0.817894429049763" />
+      <edge source="AVB" target="CPT" id="89" weight="0.9165977662988357" />
+      <edge source="AVB" target="EQR" id="90" weight="0.9465244099685273" />
+      <edge source="AVB" target="ESS" id="91" weight="0.9449315863693084" />
+      <edge source="AVB" target="FRT" id="92" weight="0.8058424956615933" />
+      <edge source="AVB" target="INVH" id="93" weight="0.8640763698642427" />
+      <edge source="AVB" target="MAA" id="94" weight="0.9198204492540524" />
+      <edge source="AVB" target="O" id="95" weight="0.8674817473842538" />
+      <edge source="AVB" target="PEAK" id="96" weight="0.8492536722143498" />
+      <edge source="AVB" target="REG" id="97" weight="0.8357112396068789" />
+      <edge source="AVB" target="UDR" id="98" weight="0.9581668845716331" />
+      <edge source="AWK" target="CMS" id="99" weight="0.8663935381119354" />
+      <edge source="AWK" target="DUK" id="100" weight="0.8141336879040785" />
+      <edge source="AWK" target="ES" id="101" weight="0.8586126859603075" />
+      <edge source="AWK" target="ETR" id="102" weight="0.8099597146836985" />
+      <edge source="AWK" target="LNT" id="103" weight="0.841840883956812" />
+      <edge source="AWK" target="WEC" id="104" weight="0.8445602866480416" />
+      <edge source="AWK" target="XEL" id="105" weight="0.8401746588883622" />
+      <edge source="AXP" target="COF" id="106" weight="0.8368105082356754" />
+      <edge source="AXP" target="DFS" id="107" weight="0.8296439812524644" />
+      <edge source="AXP" target="JPM" id="108" weight="0.8144749490956374" />
+      <edge source="AXP" target="KEY" id="109" weight="0.8150840382894049" />
+      <edge source="AXP" target="PFG" id="110" weight="0.802508143217854" />
+      <edge source="AXP" target="SYF" id="111" weight="0.8156635864805559" />
+      <edge source="BAC" target="BK" id="112" weight="0.8213453795065117" />
+      <edge source="BAC" target="C" id="113" weight="0.8866600141668615" />
+      <edge source="BAC" target="CFG" id="114" weight="0.8925682251942731" />
+      <edge source="BAC" target="CMA" id="115" weight="0.855072325996826" />
+      <edge source="BAC" target="COF" id="116" weight="0.8050408181906179" />
+      <edge source="BAC" target="FITB" id="117" weight="0.8535452191289911" />
+      <edge source="BAC" target="GS" id="118" weight="0.8565560170418601" />
+      <edge source="BAC" target="HBAN" id="119" weight="0.8597896146732376" />
+      <edge source="BAC" target="JPM" id="120" weight="0.930312160458749" />
+      <edge source="BAC" target="KEY" id="121" weight="0.894646689623006" />
+      <edge source="BAC" target="MET" id="122" weight="0.8320187282645112" />
+      <edge source="BAC" target="MS" id="123" weight="0.8361609933590827" />
+      <edge source="BAC" target="MTB" id="124" weight="0.8040068298016029" />
+      <edge source="BAC" target="NTRS" id="125" weight="0.824227093293971" />
+      <edge source="BAC" target="PFG" id="126" weight="0.8087588140304581" />
+      <edge source="BAC" target="PNC" id="127" weight="0.8956136081092503" />
+      <edge source="BAC" target="PRU" id="128" weight="0.8265581792203918" />
+      <edge source="BAC" target="RF" id="129" weight="0.8521048599979782" />
+      <edge source="BAC" target="STT" id="130" weight="0.8236703284530874" />
+      <edge source="BAC" target="TFC" id="131" weight="0.8469693740891132" />
+      <edge source="BAC" target="USB" id="132" weight="0.848938253297424" />
+      <edge source="BAC" target="WFC" id="133" weight="0.8354400651791465" />
+      <edge source="BAC" target="ZION" id="134" weight="0.8413602987602683" />
+      <edge source="BK" target="NTRS" id="135" weight="0.8412519693644416" />
+      <edge source="BK" target="STT" id="136" weight="0.8564384790539796" />
+      <edge source="BXP" target="EQR" id="137" weight="0.8104531577033356" />
+      <edge source="BXP" target="FRT" id="138" weight="0.8355356456696275" />
+      <edge source="BXP" target="REG" id="139" weight="0.8466614924617829" />
+      <edge source="BXP" target="SPG" id="140" weight="0.8266452988186285" />
+      <edge source="BXP" target="UDR" id="141" weight="0.831001770019419" />
+      <edge source="C" target="CFG" id="142" weight="0.8791856465856989" />
+      <edge source="C" target="CMA" id="143" weight="0.8199830136882804" />
+      <edge source="C" target="COF" id="144" weight="0.8229254813098937" />
+      <edge source="C" target="DFS" id="145" weight="0.8070644294727908" />
+      <edge source="C" target="FITB" id="146" weight="0.8552920113099688" />
+      <edge source="C" target="GL" id="147" weight="0.8010031986267205" />
+      <edge source="C" target="GS" id="148" weight="0.8422227404015518" />
+      <edge source="C" target="HBAN" id="149" weight="0.826583921940878" />
+      <edge source="C" target="JPM" id="150" weight="0.875230019462105" />
+      <edge source="C" target="KEY" id="151" weight="0.8760334145070393" />
+      <edge source="C" target="LNC" id="152" weight="0.800663021031303" />
+      <edge source="C" target="MET" id="153" weight="0.829794543455707" />
+      <edge source="C" target="MS" id="154" weight="0.8255899499085776" />
+      <edge source="C" target="PFG" id="155" weight="0.8390951759916646" />
+      <edge source="C" target="PNC" id="156" weight="0.8339465980923558" />
+      <edge source="C" target="PRU" id="157" weight="0.8458199795756751" />
+      <edge source="C" target="RF" id="158" weight="0.8351520461434199" />
+      <edge source="C" target="TFC" id="159" weight="0.8226912693408064" />
+      <edge source="C" target="USB" id="160" weight="0.8414790175397469" />
+      <edge source="C" target="WFC" id="161" weight="0.8130077638408257" />
+      <edge source="C" target="ZION" id="162" weight="0.8131615451595308" />
+      <edge source="CB" target="L" id="163" weight="0.8242137179325496" />
+      <edge source="CB" target="TRV" id="164" weight="0.875176604216498" />
+      <edge source="CB" target="WRB" id="165" weight="0.8332818679732829" />
+      <edge source="CCL" target="UAL" id="166" weight="0.8174854353849014" />
+      <edge source="CFG" target="CMA" id="167" weight="0.9138270218672643" />
+      <edge source="CFG" target="COF" id="168" weight="0.8698908211574787" />
+      <edge source="CFG" target="DFS" id="169" weight="0.8327138292051702" />
+      <edge source="CFG" target="FITB" id="170" weight="0.9217955353938192" />
+      <edge source="CFG" target="GL" id="171" weight="0.8182277674542405" />
+      <edge source="CFG" target="GS" id="172" weight="0.8207944991359873" />
+      <edge source="CFG" target="HBAN" id="173" weight="0.9237546267710397" />
+      <edge source="CFG" target="JPM" id="174" weight="0.8847932149894184" />
+      <edge source="CFG" target="KEY" id="175" weight="0.9407858890791895" />
+      <edge source="CFG" target="L" id="176" weight="0.8000663954181136" />
+      <edge source="CFG" target="LNC" id="177" weight="0.8316949093205472" />
+      <edge source="CFG" target="MET" id="178" weight="0.8636283466263751" />
+      <edge source="CFG" target="MTB" id="179" weight="0.8463147104448786" />
+      <edge source="CFG" target="PFG" id="180" weight="0.8393429233387977" />
+      <edge source="CFG" target="PNC" id="181" weight="0.888267265900407" />
+      <edge source="CFG" target="PRU" id="182" weight="0.8666313862487701" />
+      <edge source="CFG" target="RF" id="183" weight="0.9159416147605766" />
+      <edge source="CFG" target="SYF" id="184" weight="0.8102067032658139" />
+      <edge source="CFG" target="TFC" id="185" weight="0.9036592049923741" />
+      <edge source="CFG" target="USB" id="186" weight="0.8802143291657506" />
+      <edge source="CFG" target="WFC" id="187" weight="0.8331850853965697" />
+      <edge source="CFG" target="ZION" id="188" weight="0.8828975535493658" />
+      <edge source="CMA" target="COF" id="189" weight="0.8303465942119894" />
+      <edge source="CMA" target="DFS" id="190" weight="0.808057070896789" />
+      <edge source="CMA" target="FITB" id="191" weight="0.9049453083186341" />
+      <edge source="CMA" target="HBAN" id="192" weight="0.8834221638374864" />
+      <edge source="CMA" target="JPM" id="193" weight="0.8184882926593513" />
+      <edge source="CMA" target="KEY" id="194" weight="0.9170110215360393" />
+      <edge source="CMA" target="LNC" id="195" weight="0.802064673494423" />
+      <edge source="CMA" target="MET" id="196" weight="0.8160070957105161" />
+      <edge source="CMA" target="MTB" id="197" weight="0.8721880890217106" />
+      <edge source="CMA" target="PFG" id="198" weight="0.8037230130028515" />
+      <edge source="CMA" target="PNC" id="199" weight="0.8631837397880396" />
+      <edge source="CMA" target="PRU" id="200" weight="0.8239910133944249" />
+      <edge source="CMA" target="RF" id="201" weight="0.9061418966725754" />
+      <edge source="CMA" target="TFC" id="202" weight="0.8962963555063556" />
+      <edge source="CMA" target="USB" id="203" weight="0.8772636761921919" />
+      <edge source="CMA" target="ZION" id="204" weight="0.898067213900983" />
+      <edge source="CMS" target="DTE" id="205" weight="0.8415999445953555" />
+      <edge source="CMS" target="DUK" id="206" weight="0.8742404265411453" />
+      <edge source="CMS" target="ED" id="207" weight="0.8595052359371179" />
+      <edge source="CMS" target="ES" id="208" weight="0.8875621598551143" />
+      <edge source="CMS" target="ETR" id="209" weight="0.84874031297431" />
+      <edge source="CMS" target="EVRG" id="210" weight="0.8396120048280502" />
+      <edge source="CMS" target="LNT" id="211" weight="0.9371322555465957" />
+      <edge source="CMS" target="NI" id="212" weight="0.8362453549492803" />
+      <edge source="CMS" target="PEG" id="213" weight="0.8039673396707594" />
+      <edge source="CMS" target="PNW" id="214" weight="0.8498561176521894" />
+      <edge source="CMS" target="SO" id="215" weight="0.8350850146146016" />
+      <edge source="CMS" target="WEC" id="216" weight="0.9482052627272417" />
+      <edge source="CMS" target="XEL" id="217" weight="0.925258520027756" />
+      <edge source="COF" target="DFS" id="218" weight="0.9191247324128352" />
+      <edge source="COF" target="FITB" id="219" weight="0.8673521303973956" />
+      <edge source="COF" target="HBAN" id="220" weight="0.8080726938331421" />
+      <edge source="COF" target="JPM" id="221" weight="0.828068265776741" />
+      <edge source="COF" target="KEY" id="222" weight="0.8770024368146571" />
+      <edge source="COF" target="MET" id="223" weight="0.8262875798960048" />
+      <edge source="COF" target="PFG" id="224" weight="0.8246091205212722" />
+      <edge source="COF" target="PNC" id="225" weight="0.8119604666061597" />
+      <edge source="COF" target="PRU" id="226" weight="0.823129248368264" />
+      <edge source="COF" target="RF" id="227" weight="0.8169804179648601" />
+      <edge source="COF" target="SYF" id="228" weight="0.9059119765066522" />
+      <edge source="COF" target="TFC" id="229" weight="0.8022898382331214" />
+      <edge source="COP" target="DVN" id="230" weight="0.8515382542577039" />
+      <edge source="COP" target="EOG" id="231" weight="0.8900901386495752" />
+      <edge source="COP" target="FANG" id="232" weight="0.8506327205115555" />
+      <edge source="COP" target="HAL" id="233" weight="0.8461621293432718" />
+      <edge source="COP" target="HES" id="234" weight="0.8315760370906923" />
+      <edge source="COP" target="MRO" id="235" weight="0.8780834686175264" />
+      <edge source="COP" target="OXY" id="236" weight="0.8110415558506989" />
+      <edge source="COP" target="PXD" id="237" weight="0.8664772837287052" />
+      <edge source="COP" target="SLB" id="238" weight="0.8408819719356625" />
+      <edge source="COP" target="XOM" id="239" weight="0.8638387162727565" />
+      <edge source="CPT" target="EQR" id="240" weight="0.8630056538868507" />
+      <edge source="CPT" target="ESS" id="241" weight="0.8878152845789795" />
+      <edge source="CPT" target="INVH" id="242" weight="0.8547309771081871" />
+      <edge source="CPT" target="MAA" id="243" weight="0.950201279496372" />
+      <edge source="CPT" target="O" id="244" weight="0.8361664569692624" />
+      <edge source="CPT" target="PEAK" id="245" weight="0.8529207749893947" />
+      <edge source="CPT" target="UDR" id="246" weight="0.9205883759333796" />
+      <edge source="DAL" target="DFS" id="247" weight="0.818553959748907" />
+      <edge source="DAL" target="LUV" id="248" weight="0.8159962505389526" />
+      <edge source="DAL" target="UAL" id="249" weight="0.9072085481742664" />
+      <edge source="DFS" target="FITB" id="250" weight="0.866752110948821" />
+      <edge source="DFS" target="KEY" id="251" weight="0.8470013611041805" />
+      <edge source="DFS" target="LNC" id="252" weight="0.8265567505686156" />
+      <edge source="DFS" target="MET" id="253" weight="0.8222295962991972" />
+      <edge source="DFS" target="PFG" id="254" weight="0.8417351743682537" />
+      <edge source="DFS" target="SYF" id="255" weight="0.9183305295032475" />
+      <edge source="DHI" target="LEN" id="256" weight="0.9286354239629003" />
+      <edge source="DHI" target="NVR" id="257" weight="0.8383306281003344" />
+      <edge source="DHI" target="PHM" id="258" weight="0.8777282481955327" />
+      <edge source="DOV" target="ETN" id="259" weight="0.8682310218698783" />
+      <edge source="DOV" target="HON" id="260" weight="0.8306673810905325" />
+      <edge source="DOV" target="ITW" id="261" weight="0.8143615999095903" />
+      <edge source="DOV" target="PH" id="262" weight="0.8155081020967566" />
+      <edge source="DOV" target="TT" id="263" weight="0.8070970370366461" />
+      <edge source="DTE" target="DUK" id="264" weight="0.8358209621248704" />
+      <edge source="DTE" target="ES" id="265" weight="0.8053948708987031" />
+      <edge source="DTE" target="ETR" id="266" weight="0.8464357199714768" />
+      <edge source="DTE" target="EVRG" id="267" weight="0.8165341154990543" />
+      <edge source="DTE" target="EXC" id="268" weight="0.8346168628830494" />
+      <edge source="DTE" target="LNT" id="269" weight="0.8727633068242371" />
+      <edge source="DTE" target="NI" id="270" weight="0.8414921007444014" />
+      <edge source="DTE" target="PEG" id="271" weight="0.8245800107618071" />
+      <edge source="DTE" target="PNW" id="272" weight="0.8521102627461254" />
+      <edge source="DTE" target="PPL" id="273" weight="0.8184373462023657" />
+      <edge source="DTE" target="SO" id="274" weight="0.854068981930888" />
+      <edge source="DTE" target="SRE" id="275" weight="0.832466920073113" />
+      <edge source="DUK" target="ED" id="276" weight="0.818957292120821" />
+      <edge source="DUK" target="ES" id="277" weight="0.8655976000138083" />
+      <edge source="DUK" target="ETR" id="278" weight="0.8718412014837924" />
+      <edge source="DUK" target="EVRG" id="279" weight="0.8070409688862228" />
+      <edge source="DUK" target="LNT" id="280" weight="0.8848113958938261" />
+      <edge source="DUK" target="NI" id="281" weight="0.8162067210520694" />
+      <edge source="DUK" target="PNW" id="282" weight="0.8355874106270599" />
+      <edge source="DUK" target="PPL" id="283" weight="0.8049332150235097" />
+      <edge source="DUK" target="SO" id="284" weight="0.840958893219693" />
+      <edge source="DUK" target="WEC" id="285" weight="0.8816191545998728" />
+      <edge source="DUK" target="XEL" id="286" weight="0.8578939231291555" />
+      <edge source="DVN" target="EOG" id="287" weight="0.8297757974891347" />
+      <edge source="DVN" target="FANG" id="288" weight="0.8274870435203231" />
+      <edge source="DVN" target="HAL" id="289" weight="0.8268556064594101" />
+      <edge source="DVN" target="HES" id="290" weight="0.8004203425583061" />
+      <edge source="DVN" target="MRO" id="291" weight="0.8896772166913147" />
+      <edge source="DVN" target="OXY" id="292" weight="0.8114450636577727" />
+      <edge source="DVN" target="PXD" id="293" weight="0.8145763422407085" />
+      <edge source="DVN" target="SLB" id="294" weight="0.8237056747291829" />
+      <edge source="DVN" target="XOM" id="295" weight="0.8111347446633839" />
+      <edge source="ED" target="ES" id="296" weight="0.8215095335694316" />
+      <edge source="ED" target="LNT" id="297" weight="0.8429019342254934" />
+      <edge source="ED" target="WEC" id="298" weight="0.8619848017905842" />
+      <edge source="ED" target="XEL" id="299" weight="0.8515666975556496" />
+      <edge source="EMN" target="EMR" id="300" weight="0.813236343169117" />
+      <edge source="EMN" target="PH" id="301" weight="0.8012194868352234" />
+      <edge source="EMN" target="PRU" id="302" weight="0.8115493099059932" />
+      <edge source="EMR" target="PH" id="303" weight="0.8084936929174202" />
+      <edge source="EOG" target="FANG" id="304" weight="0.8157652705447354" />
+      <edge source="EOG" target="HAL" id="305" weight="0.8211423917567652" />
+      <edge source="EOG" target="HES" id="306" weight="0.8556220157863943" />
+      <edge source="EOG" target="MRO" id="307" weight="0.8441654001668863" />
+      <edge source="EOG" target="PXD" id="308" weight="0.8742170792238966" />
+      <edge source="EOG" target="SLB" id="309" weight="0.860410978788215" />
+      <edge source="EOG" target="XOM" id="310" weight="0.8257805774964108" />
+      <edge source="EQR" target="ESS" id="311" weight="0.9267070362739119" />
+      <edge source="EQR" target="INVH" id="312" weight="0.8101492445501581" />
+      <edge source="EQR" target="MAA" id="313" weight="0.8693511425981767" />
+      <edge source="EQR" target="O" id="314" weight="0.8247163114988337" />
+      <edge source="EQR" target="PEAK" id="315" weight="0.8364934808004698" />
+      <edge source="EQR" target="REG" id="316" weight="0.8051818812745152" />
+      <edge source="EQR" target="UDR" id="317" weight="0.949949335090768" />
+      <edge source="ES" target="ETR" id="318" weight="0.8393209359348799" />
+      <edge source="ES" target="LNT" id="319" weight="0.8861286915703577" />
+      <edge source="ES" target="PNW" id="320" weight="0.8190179997866828" />
+      <edge source="ES" target="SO" id="321" weight="0.8074161694405859" />
+      <edge source="ES" target="WEC" id="322" weight="0.8877419450002907" />
+      <edge source="ES" target="XEL" id="323" weight="0.8892814221690275" />
+      <edge source="ESS" target="INVH" id="324" weight="0.8279506274771581" />
+      <edge source="ESS" target="MAA" id="325" weight="0.8894015332006956" />
+      <edge source="ESS" target="O" id="326" weight="0.8281228542087399" />
+      <edge source="ESS" target="PEAK" id="327" weight="0.8380593706455669" />
+      <edge source="ESS" target="UDR" id="328" weight="0.9396891010350941" />
+      <edge source="ETN" target="HON" id="329" weight="0.8390275383764596" />
+      <edge source="ETN" target="ITW" id="330" weight="0.8523710350205055" />
+      <edge source="ETN" target="PH" id="331" weight="0.8545456831273209" />
+      <edge source="ETN" target="TEL" id="332" weight="0.8293664154463135" />
+      <edge source="ETN" target="TT" id="333" weight="0.8133616168101628" />
+      <edge source="ETR" target="EVRG" id="334" weight="0.8478247010718072" />
+      <edge source="ETR" target="EXC" id="335" weight="0.8106191644003425" />
+      <edge source="ETR" target="LNT" id="336" weight="0.86683836176319" />
+      <edge source="ETR" target="NI" id="337" weight="0.851485538507538" />
+      <edge source="ETR" target="PNW" id="338" weight="0.8549066467386547" />
+      <edge source="ETR" target="PPL" id="339" weight="0.824455365059288" />
+      <edge source="ETR" target="SO" id="340" weight="0.8570438808155844" />
+      <edge source="ETR" target="SRE" id="341" weight="0.8142130345051929" />
+      <edge source="ETR" target="WEC" id="342" weight="0.8328667145631439" />
+      <edge source="ETR" target="XEL" id="343" weight="0.8007938305105399" />
+      <edge source="EVRG" target="LNT" id="344" weight="0.841459765610461" />
+      <edge source="EVRG" target="NI" id="345" weight="0.8054709373889501" />
+      <edge source="EVRG" target="PNW" id="346" weight="0.8106820416261176" />
+      <edge source="EVRG" target="SO" id="347" weight="0.8135971684066973" />
+      <edge source="EVRG" target="WEC" id="348" weight="0.8087439141864458" />
+      <edge source="EXC" target="LNT" id="349" weight="0.8064045653232825" />
+      <edge source="EXC" target="NI" id="350" weight="0.8000028946139174" />
+      <edge source="EXC" target="PEG" id="351" weight="0.8493222044741779" />
+      <edge source="EXC" target="PNW" id="352" weight="0.8056420844082134" />
+      <edge source="EXC" target="SO" id="353" weight="0.8129758409848344" />
+      <edge source="FANG" target="HAL" id="354" weight="0.836117443437233" />
+      <edge source="FANG" target="MRO" id="355" weight="0.828974710339904" />
+      <edge source="FANG" target="OXY" id="356" weight="0.800998944813213" />
+      <edge source="FANG" target="PXD" id="357" weight="0.8288623219916662" />
+      <edge source="FITB" target="GL" id="358" weight="0.8229050487819913" />
+      <edge source="FITB" target="HBAN" id="359" weight="0.8925313241525629" />
+      <edge source="FITB" target="JPM" id="360" weight="0.8425504856792514" />
+      <edge source="FITB" target="KEY" id="361" weight="0.9449221942450131" />
+      <edge source="FITB" target="LNC" id="362" weight="0.8421495627063853" />
+      <edge source="FITB" target="MET" id="363" weight="0.8727924355047858" />
+      <edge source="FITB" target="MTB" id="364" weight="0.8439145989266239" />
+      <edge source="FITB" target="PFG" id="365" weight="0.8450723423361253" />
+      <edge source="FITB" target="PNC" id="366" weight="0.8831036601234464" />
+      <edge source="FITB" target="PRU" id="367" weight="0.8763453601043382" />
+      <edge source="FITB" target="RF" id="368" weight="0.9184888594675521" />
+      <edge source="FITB" target="SYF" id="369" weight="0.8168282242972008" />
+      <edge source="FITB" target="TFC" id="370" weight="0.8973947696596511" />
+      <edge source="FITB" target="USB" id="371" weight="0.8826373974207311" />
+      <edge source="FITB" target="WFC" id="372" weight="0.8224825910639625" />
+      <edge source="FITB" target="ZION" id="373" weight="0.8618271475466869" />
+      <edge source="FRT" target="KIM" id="374" weight="0.8820801932474268" />
+      <edge source="FRT" target="REG" id="375" weight="0.9518431130077316" />
+      <edge source="FRT" target="SPG" id="376" weight="0.9023749482403659" />
+      <edge source="FRT" target="UDR" id="377" weight="0.8290561858160441" />
+      <edge source="GL" target="HBAN" id="378" weight="0.8212728784989772" />
+      <edge source="GL" target="KEY" id="379" weight="0.8262325871458218" />
+      <edge source="GL" target="L" id="380" weight="0.8268432594192727" />
+      <edge source="GL" target="MET" id="381" weight="0.8815743369828474" />
+      <edge source="GL" target="PFG" id="382" weight="0.8300868075737817" />
+      <edge source="GL" target="PRU" id="383" weight="0.8803925216021661" />
+      <edge source="GL" target="RF" id="384" weight="0.8101638171850881" />
+      <edge source="GL" target="RTX" id="385" weight="0.8049015746627288" />
+      <edge source="GL" target="TFC" id="386" weight="0.8157063098166172" />
+      <edge source="GL" target="USB" id="387" weight="0.8071975445250507" />
+      <edge source="GS" target="JPM" id="388" weight="0.8643990279916984" />
+      <edge source="GS" target="KEY" id="389" weight="0.8120394387253228" />
+      <edge source="GS" target="MET" id="390" weight="0.8234386211105919" />
+      <edge source="GS" target="MS" id="391" weight="0.8803468025427625" />
+      <edge source="GS" target="PFG" id="392" weight="0.8083701751526426" />
+      <edge source="GS" target="PNC" id="393" weight="0.8062735655741072" />
+      <edge source="GS" target="PRU" id="394" weight="0.8149827932377" />
+      <edge source="HAL" target="HES" id="395" weight="0.8085211405418945" />
+      <edge source="HAL" target="MRO" id="396" weight="0.8254802317353858" />
+      <edge source="HAL" target="PXD" id="397" weight="0.8274216376978529" />
+      <edge source="HAL" target="SLB" id="398" weight="0.864973843885661" />
+      <edge source="HAL" target="XOM" id="399" weight="0.8194346474130224" />
+      <edge source="HBAN" target="JPM" id="400" weight="0.8480796935204925" />
+      <edge source="HBAN" target="KEY" id="401" weight="0.9208874307573243" />
+      <edge source="HBAN" target="MET" id="402" weight="0.8125730592344946" />
+      <edge source="HBAN" target="MTB" id="403" weight="0.8654311977332753" />
+      <edge source="HBAN" target="PNC" id="404" weight="0.8558447954589781" />
+      <edge source="HBAN" target="PRU" id="405" weight="0.8363079933533903" />
+      <edge source="HBAN" target="RF" id="406" weight="0.9108693763926562" />
+      <edge source="HBAN" target="TFC" id="407" weight="0.8794570345047381" />
+      <edge source="HBAN" target="USB" id="408" weight="0.8740015152251187" />
+      <edge source="HBAN" target="WFC" id="409" weight="0.8202240652098678" />
+      <edge source="HBAN" target="ZION" id="410" weight="0.875671268295446" />
+      <edge source="HES" target="MRO" id="411" weight="0.8368676410866138" />
+      <edge source="HES" target="PXD" id="412" weight="0.8266106833036931" />
+      <edge source="HES" target="SLB" id="413" weight="0.8087040133718449" />
+      <edge source="HES" target="XOM" id="414" weight="0.8204974440403382" />
+      <edge source="HIG" target="L" id="415" weight="0.8186382677359135" />
+      <edge source="HIG" target="TRV" id="416" weight="0.8004200546798861" />
+      <edge source="HON" target="PH" id="417" weight="0.830649228546854" />
+      <edge source="INVH" target="MAA" id="418" weight="0.8816407377059172" />
+      <edge source="INVH" target="O" id="419" weight="0.8212916322314905" />
+      <edge source="INVH" target="PEAK" id="420" weight="0.8041645973156542" />
+      <edge source="INVH" target="UDR" id="421" weight="0.8543752987594626" />
+      <edge source="ITW" target="PH" id="422" weight="0.8416519949363809" />
+      <edge source="ITW" target="TEL" id="423" weight="0.8045673466892764" />
+      <edge source="JPM" target="KEY" id="424" weight="0.8767917488009027" />
+      <edge source="JPM" target="MET" id="425" weight="0.8401750365050723" />
+      <edge source="JPM" target="MS" id="426" weight="0.8574594647946451" />
+      <edge source="JPM" target="PFG" id="427" weight="0.8156677303646233" />
+      <edge source="JPM" target="PNC" id="428" weight="0.8953057202211735" />
+      <edge source="JPM" target="PRU" id="429" weight="0.8204390007107336" />
+      <edge source="JPM" target="RF" id="430" weight="0.8304483007319264" />
+      <edge source="JPM" target="TFC" id="431" weight="0.8176623087279926" />
+      <edge source="JPM" target="USB" id="432" weight="0.8513409763362773" />
+      <edge source="JPM" target="WFC" id="433" weight="0.8117141355589342" />
+      <edge source="JPM" target="ZION" id="434" weight="0.8046636458270218" />
+      <edge source="KEY" target="LNC" id="435" weight="0.8308760163019413" />
+      <edge source="KEY" target="MET" id="436" weight="0.8684629463857171" />
+      <edge source="KEY" target="MTB" id="437" weight="0.8594823389269518" />
+      <edge source="KEY" target="PFG" id="438" weight="0.852070320635252" />
+      <edge source="KEY" target="PNC" id="439" weight="0.8966996757733054" />
+      <edge source="KEY" target="PRU" id="440" weight="0.8768154951613224" />
+      <edge source="KEY" target="RF" id="441" weight="0.9269101355411575" />
+      <edge source="KEY" target="SYF" id="442" weight="0.8185441762964912" />
+      <edge source="KEY" target="TFC" id="443" weight="0.9032963697370087" />
+      <edge source="KEY" target="USB" id="444" weight="0.8825163253565393" />
+      <edge source="KEY" target="WFC" id="445" weight="0.8455314782279085" />
+      <edge source="KEY" target="ZION" id="446" weight="0.8783911285032662" />
+      <edge source="KIM" target="REG" id="447" weight="0.8633761579784703" />
+      <edge source="KIM" target="SPG" id="448" weight="0.8215605357247953" />
+      <edge source="L" target="MET" id="449" weight="0.8345245823918694" />
+      <edge source="L" target="PRU" id="450" weight="0.8323655646032232" />
+      <edge source="L" target="TRV" id="451" weight="0.8031781280085475" />
+      <edge source="L" target="USB" id="452" weight="0.8032927542625199" />
+      <edge source="LEN" target="NVR" id="453" weight="0.8398192793075937" />
+      <edge source="LEN" target="PHM" id="454" weight="0.893535885497299" />
+      <edge source="LNC" target="MET" id="455" weight="0.8503045934739805" />
+      <edge source="LNC" target="PFG" id="456" weight="0.824218795492428" />
+      <edge source="LNC" target="PRU" id="457" weight="0.8574353280659264" />
+      <edge source="LNT" target="NI" id="458" weight="0.8267937437263103" />
+      <edge source="LNT" target="PEG" id="459" weight="0.8085021597495929" />
+      <edge source="LNT" target="PNW" id="460" weight="0.8697965671171585" />
+      <edge source="LNT" target="PPL" id="461" weight="0.82138504073179" />
+      <edge source="LNT" target="SO" id="462" weight="0.8576725290671231" />
+      <edge source="LNT" target="WEC" id="463" weight="0.9172071832687766" />
+      <edge source="LNT" target="XEL" id="464" weight="0.8927853250002074" />
+      <edge source="LUV" target="UAL" id="465" weight="0.8184576741127035" />
+      <edge source="MAA" target="O" id="466" weight="0.8602709403271335" />
+      <edge source="MAA" target="PEAK" id="467" weight="0.8595893035110204" />
+      <edge source="MAA" target="UDR" id="468" weight="0.9257533943842612" />
+      <edge source="MET" target="MS" id="469" weight="0.8062215756789707" />
+      <edge source="MET" target="PFG" id="470" weight="0.9063053646005248" />
+      <edge source="MET" target="PH" id="471" weight="0.821737381817735" />
+      <edge source="MET" target="PNC" id="472" weight="0.8246708628816912" />
+      <edge source="MET" target="PRU" id="473" weight="0.9266289622096359" />
+      <edge source="MET" target="RF" id="474" weight="0.8390671180176869" />
+      <edge source="MET" target="TFC" id="475" weight="0.8180329230819127" />
+      <edge source="MET" target="USB" id="476" weight="0.8054378850326736" />
+      <edge source="MRO" target="OXY" id="477" weight="0.8237142900161564" />
+      <edge source="MRO" target="PXD" id="478" weight="0.8390546685836847" />
+      <edge source="MRO" target="SLB" id="479" weight="0.8225094243084018" />
+      <edge source="MRO" target="XOM" id="480" weight="0.8378819308933592" />
+      <edge source="MTB" target="PNC" id="481" weight="0.8309587022928336" />
+      <edge source="MTB" target="RF" id="482" weight="0.8719676333320924" />
+      <edge source="MTB" target="TFC" id="483" weight="0.8582946040781382" />
+      <edge source="MTB" target="USB" id="484" weight="0.8634942566395543" />
+      <edge source="MTB" target="ZION" id="485" weight="0.8693340737933012" />
+      <edge source="NI" target="PNW" id="486" weight="0.8362067140992794" />
+      <edge source="NI" target="SO" id="487" weight="0.8180276713827004" />
+      <edge source="NTRS" target="STT" id="488" weight="0.8383015586472878" />
+      <edge source="NVR" target="PHM" id="489" weight="0.8445244757230976" />
+      <edge source="O" target="PEAK" id="490" weight="0.8542687069493274" />
+      <edge source="O" target="REG" id="491" weight="0.8378003062494829" />
+      <edge source="O" target="UDR" id="492" weight="0.8708160697535662" />
+      <edge source="O" target="VTR" id="493" weight="0.8011799597776453" />
+      <edge source="OXY" target="XOM" id="494" weight="0.8035913221864246" />
+      <edge source="PEAK" target="REG" id="495" weight="0.8049584598531834" />
+      <edge source="PEAK" target="UDR" id="496" weight="0.8776450681722058" />
+      <edge source="PEAK" target="VTR" id="497" weight="0.8640097134357567" />
+      <edge source="PEG" target="PNW" id="498" weight="0.807755713447679" />
+      <edge source="PFG" target="PH" id="499" weight="0.8130013607266566" />
+      <edge source="PFG" target="PNC" id="500" weight="0.8015913992637591" />
+      <edge source="PFG" target="PRU" id="501" weight="0.9022843506612919" />
+      <edge source="PFG" target="RF" id="502" weight="0.8087590835853904" />
+      <edge source="PFG" target="SYF" id="503" weight="0.8047058648383579" />
+      <edge source="PH" target="PRU" id="504" weight="0.813862573951978" />
+      <edge source="PH" target="TEL" id="505" weight="0.8119095513052565" />
+      <edge source="PNC" target="PRU" id="506" weight="0.8204348911056343" />
+      <edge source="PNC" target="RF" id="507" weight="0.8616317255837969" />
+      <edge source="PNC" target="TFC" id="508" weight="0.8930291582704795" />
+      <edge source="PNC" target="USB" id="509" weight="0.8696555104731715" />
+      <edge source="PNC" target="WFC" id="510" weight="0.8340788424134227" />
+      <edge source="PNC" target="ZION" id="511" weight="0.8501638778262302" />
+      <edge source="PNW" target="PPL" id="512" weight="0.803103841718734" />
+      <edge source="PNW" target="SO" id="513" weight="0.8530454526509941" />
+      <edge source="PNW" target="WEC" id="514" weight="0.8169960571515478" />
+      <edge source="PNW" target="XEL" id="515" weight="0.8187227403051801" />
+      <edge source="PRU" target="RF" id="516" weight="0.8618265433032387" />
+      <edge source="PRU" target="RTX" id="517" weight="0.8098020159603706" />
+      <edge source="PRU" target="TFC" id="518" weight="0.8345101028650361" />
+      <edge source="PRU" target="USB" id="519" weight="0.8261917476015413" />
+      <edge source="PRU" target="WFC" id="520" weight="0.8031755736155984" />
+      <edge source="PRU" target="ZION" id="521" weight="0.8172408396589206" />
+      <edge source="PXD" target="SLB" id="522" weight="0.8049112923454197" />
+      <edge source="PXD" target="XOM" id="523" weight="0.8095694406383421" />
+      <edge source="REG" target="SPG" id="524" weight="0.8829471207179543" />
+      <edge source="REG" target="UDR" id="525" weight="0.8524945529053085" />
+      <edge source="REG" target="VTR" id="526" weight="0.8090682644218503" />
+      <edge source="RF" target="TFC" id="527" weight="0.911621060539412" />
+      <edge source="RF" target="USB" id="528" weight="0.8842765285420868" />
+      <edge source="RF" target="WFC" id="529" weight="0.8322036335141646" />
+      <edge source="RF" target="ZION" id="530" weight="0.89765297641182" />
+      <edge source="SLB" target="XOM" id="531" weight="0.8139875627009845" />
+      <edge source="SO" target="SRE" id="532" weight="0.8375483968785039" />
+      <edge source="TFC" target="USB" id="533" weight="0.8919106264772184" />
+      <edge source="TFC" target="WFC" id="534" weight="0.8190962799263859" />
+      <edge source="TFC" target="ZION" id="535" weight="0.8775494700201778" />
+      <edge source="TRV" target="WRB" id="536" weight="0.812273329458366" />
+      <edge source="USB" target="WFC" id="537" weight="0.8456919490922922" />
+      <edge source="USB" target="ZION" id="538" weight="0.8685872117611074" />
+      <edge source="WEC" target="XEL" id="539" weight="0.9352221988328969" />
+    </edges>
+  </graph>
+</gexf>
