@@ -40,7 +40,7 @@ class NetworkGraph():
 
 
         corr= Correlation(self.historical_data) # 3.1  create correlation instance
-        adj_matrix = corr.get_weighted_adj_matrix(corr_type) # 3.2 calculate correlation matrix
+        adj_matrix = corr.get_adj_matrix(corr_type) # 3.2 calculate correlation matrix
         print("Adjacency matrix: \n", adj_matrix)
 
         self.G = nx.from_numpy_matrix(adj_matrix)
