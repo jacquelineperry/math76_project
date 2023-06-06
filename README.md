@@ -16,6 +16,9 @@
 - calculates various matrices based on correlation types and ways of valuing stock
 ### network_graph.py
 - creates actual network instances
+### sir.py
+- all SIR analysis in this file
+- contains multiple cells that compute SIR for different example use cases
 
 ## company_list.csv
 - simply a list of all the companies
